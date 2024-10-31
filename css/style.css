@@ -72,8 +72,8 @@
 }
 
 .btn.btn-primary:hover {
-    background: var(--bs-dark);
-    color: var(--bs-blue--bs-blue);
+    background: var(--bs-blue);
+    color: var(--bs-blue);
 }
 
 .btn.btn-light {
@@ -378,7 +378,7 @@
 .bg-breadcrumb {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/carousel-1.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../img/background-img.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -585,7 +585,7 @@
 
 /*** FAQs Start ***/
 .faq-section .accordion .accordion-item .accordion-header .accordion-button {
-    color: var(--bs-secondary);
+    color: var(--bs-blue);
 }
 
 .faq-section .accordion .accordion-item .accordion-header .accordion-button.collapsed {
@@ -695,7 +695,7 @@
 }
 
 .team .team-item:hover .team-icon a:hover {
-    color: var(--bs-blue--bs-blue);
+    color: var(--bs-blue);
     background: var(--bs-dark);
 }
 /*** Team End ***/
@@ -765,7 +765,7 @@
     right: 25px;
     margin-top: -5px;
     border-radius: 60px;
-    color: var(--bs-blue--bs-blue);
+    color: var(--bs-blue);
     background: var(--bs-white);
     display: flex;
     align-items: center;
@@ -789,7 +789,7 @@
 }
 
 .testimonial .owl-nav .owl-prev:hover {
-    background: var(--bs-secondary);
+    background: var(--bs-blue);
     color: var(--bs-white);
 }
 
@@ -805,7 +805,7 @@
 }
 
 .testimonial .owl-nav .owl-next:hover {
-    background: var(--bs-secondary);
+    background: var(--bs-blue);
     color: var(--bs-white);
 }
 
@@ -827,7 +827,7 @@
     width: 30px;
     height: 30px;
     border-radius: 30px;
-    background: var(--bs-secondary);
+    background: var(--bs-blue);
     transition: 0.5s;
 }
 
@@ -867,7 +867,7 @@
 
 /*** Footer Start ***/
 .footer {
-    background: var(--bs-secondary);
+    background: var(--bs-white);
 }
 
 .footer .footer-item {
