@@ -22,8 +22,7 @@
         <link href="lib/animate/animate.min.css" rel="stylesheet">
         <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-
+        
         <!-- Customized Bootstrap Stylesheet -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -32,6 +31,23 @@
     </head>
 
     <body>
+        <script>document.addEventListener('copy', function(e) {
+            e.preventDefault();
+        });
+        
+        document.addEventListener('cut', function(e) {
+            e.preventDefault();
+        });
+        
+        document.addEventListener('paste', function(e) {
+            e.preventDefault();
+        });</script>
+        <style>body {
+            user-select: none; /* Standard syntax */
+            -moz-user-select: none; /* Firefox */
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+        }</style>
 
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -86,10 +102,10 @@
                         <a href="index.html" class="nav-item nav-link">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
                         <a href="service.html" class="nav-item nav-link">Services</a>
-                        <a href="team.html" class="nav-item nav-link active">Our team</a>
+                        <a href="team.html" class="nav-item nav-link active">Team</a>
                         <a href="career.html" class="nav-item nav-link">Career</a>
                         <!-- <a href="testimonial.html" class="nav-item nav-link">Testimonial</a> -->
-                        <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
                     <!-- <a href="#" class="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0">Get Started</a> -->
                 </div>
@@ -100,9 +116,9 @@
                 <div class="container text-center py-5" style="max-width: 900px;">
                     <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Our Team</h4>
                     <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <!-- <li class="breadcrumb-item"><a href="index.html">Home</a></li> -->
                         <!-- <li class="breadcrumb-item"><a href="#">Pages</a></li> -->
-                        <li class="breadcrumb-item active text-primary">Team</li>
+                        <!-- <li class="breadcrumb-item active text-primary">Team</li> -->
                     </ol>    
                 </div>
             </div>
@@ -117,98 +133,138 @@
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                     <h4 class="text-primary">Our Team</h4>
                     <h1 class="display-5 mb-4">Meet Our Advisers</h1>
-                    <p class="mb-0">Our team is a group of skilled tech innovators, creative thinkers, and problem-solvers dedicated to delivering impactful digital solutions.
-                    </p>
+                    <p class="mb-0">Our team is a group of skilled tech innovators, creative thinkers, and problem-solvers dedicated to delivering impactful digital solutions.</p>
                 </div>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-1.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="team-title">
-                                <h4 class="mb-0">Nakul V</h4>
-                                <p class="mb-0">Founder - CEO</p>
-                            </div>
-                            <div class="team-icon">
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
+                <div class="owl-carousel team-carousel wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img src="img/team-1.jpg" class="img-fluid" alt="">
+                        </div>
+                        <div class="team-title" style="height: 142px;">
+                            <h4 class="mb-0">Nakul V</h4>
+                            <p class="mb-0">Founder - CEO</p>
+                        </div>
+                        <div class="team-icon">
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-2.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="team-title">
-                                <h4 class="mb-0">Rasikashree S</h4>
-                                <p class="mb-0">Co-Founder - CTO</p>
-                            </div>
-                            <div class="team-icon">
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
+                    <!-- Repeat for other team members -->
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img src="img/team-2.jpg" class="img-fluid" alt="">
+                        </div>
+                        <div class="team-title" style="height: 142px;">
+                            <h4 class="mb-0">Rasikashree S</h4>
+                            <p class="mb-0">Co-Founder - CTO</p>
+                        </div>
+                        <div class="team-icon">
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-3.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="team-title">
-                                <h4 class="mb-0">Shanmuga Priyan G</h4>
-                                <p class="mb-0">Vice President - HR</p>
-                            </div>
-                            <div class="team-icon">
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
+                    <!-- Add more team-item divs as needed -->
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img src="img/team-2.jpg" class="img-fluid" alt="">
+                        </div>
+                        <div class="team-title" style="height: 142px;">
+                            <h4 class="mb-0">Shanmuga Priyan G</h4>
+                            <p class="mb-0">Vice President</p>
+                        </div>
+                        <div class="team-icon">
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-4.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="team-title">
-                                <h4 class="mb-0">Harshitha V</h4>
-                                <p class="mb-0">COO</p>
-                            </div>
-                            <div class="team-icon">
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img src="img/team-2.jpg" class="img-fluid" alt="">
+                        </div>
+                        <div class="team-title" style="height: 142px;">
+                            <h4 class="mb-0">Harshitha V</h4>
+                            <p class="mb-0">COO</p>
+                        </div>
+                        <div class="team-icon">
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-4.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="team-title">
-                                <h4 class="mb-0">Jagadeesh M</h4>
-                                <p class="mb-0">Mentor</p>
-                            </div>
-                            <div class="team-icon">
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
+                    <div class="team-item">
+                        <div class="team-img">
+                            <img src="img/team-2.jpg" class="img-fluid" alt="">
+                        </div>
+                        <div class="team-title" style="height: 142px;">
+                            <h4 class="mb-0">Jagadeesh M</h4>
+                            <p class="mb-0">Mentor</p>
+                            <p>Founder & CEO of Virtuospark</p>
+                        </div>
+                        <div class="team-icon">
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <!-- Include jQuery and Owl Carousel script -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.theme.default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                var $carousel = $('.team-carousel');
+        
+                // Initialize the carousel
+                $carousel.owlCarousel({
+                    loop: true,
+                    margin: 30,
+                    nav: false, // Hide navigation buttons
+                    autoplay: true,
+                    autoplayTimeout: 3000, // Time to display each item
+                    autoplaySpeed: 2000, // Duration of each slide transition
+                    autoplayHoverPause: false, // Disable pause on hover
+                    responsive: {
+                        0: { items: 1 },
+                        576: { items: 2 },
+                        992: { items: 3 },
+                        1200: { items: 4 }
+                    }
+                });
+        
+                // Change autoplay settings when the carousel is hovered or clicked
+                $carousel.on('mouseenter', function() {
+                    // Pause autoplay on hover
+                    $carousel.trigger('stop.owl.autoplay');
+                }).on('mouseleave', function() {
+                    // Resume autoplay when the mouse leaves
+                    $carousel.trigger('play.owl.autoplay', [3000]); // Adjust this to the desired timeout
+                });
+        
+                // Optionally, you can reset the autoplay settings when the carousel is clicked
+                $carousel.on('click', function() {
+                    // Change autoplay settings or reset them here
+                    $carousel.trigger('stop.owl.autoplay'); // Stop autoplay on click
+                    setTimeout(function() {
+                        $carousel.trigger('play.owl.autoplay', [3000]); // Resume autoplay
+                    }, 500); // Adjust this delay as needed
+                });
+            });
+        </script>
+        
+        
         <!-- Team End -->
 
         <!-- Footer Start -->
@@ -280,6 +336,141 @@
                             <a href="#"><i class="fas fa-angle-right me-2"></i> Digital Marketing</a>
                         </div>
                     </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item">
+                            <h4 class="text-white mb-4">Join Our Newsletter</h4>
+                            <div class="d-flex align-items-center">
+                                <p class="text-white mb-0" style="text-align: justify;">Be the first to know about exciting news & updates.</p>
+                            </div>                             
+                            <section class="contact-section">                            
+                                <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+                              
+                                  <input type="hidden" name="access_key" value="8d8ebc3f-89ff-44a3-b3b2-5c72e45f7c19" />
+                                  <input type="hidden" name="branding" value="false" />
+                            
+                                  <!-- <div class="form-group-container"> -->
+                                    <!-- <div class="form-group">
+                                      <label for="name" class="form-label">Name</label>
+                                      <input id="name" name="name" class="form-input" placeholder="Your name" type="text" required />
+                                    </div> -->
+                                    <div class="form-group">
+                                      <!-- <label for="email" class="form-label"></label> -->
+                                      <input id="email" name="email" class="form-input" placeholder="Your email" type="email" required />
+                                    </div>
+                                    <!-- <div class="form-group">
+                                      <label for="phone" class="form-label">Phone</label>
+                                      <input id="phone" name="phone" class="form-input" placeholder="Your number" type="text" />
+                                    </div> -->
+                                    <!-- <div class="form-group">
+                                      <label for="message" class="form-label">Message</label>
+                                      <textarea class="form-textarea" id="message" name="message" placeholder="Your message" required></textarea>
+                                    </div> -->
+                                  <!-- </div> -->
+                                  <button class="form-submit" type="submit">Send Message</button>
+                                </form>
+                            
+                                <div id="formSuccessMessage" style="display: none;">
+                                    <p>Subscribed</p>
+                                </div>
+                                
+                            </section>
+                            <script>
+                                document.getElementById("contactForm").addEventListener("submit", function(event) {
+                                    event.preventDefault(); // Prevent the default form submission
+                                    const formData = new FormData(this);
+                                    
+                                    fetch(this.action, {
+                                        method: "POST",
+                                        body: formData
+                                    })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        if (data.success) {
+                                            document.getElementById("contactForm").style.display = "none";
+                                            document.getElementById("formSuccessMessage").style.display = "block";
+                                        } else {
+                                            alert("There was an error submitting the form. Please try again.");
+                                        }
+                                    })
+                                    .catch(error => console.error("Error:", error));
+                                });
+                            </script>
+                            <style>
+                                .contact-section {
+                                  width: 100%;
+                                  max-width: 40rem;
+                                  margin-left: auto;
+                                  margin-right: auto;
+                                  padding: 3rem 1rem;
+                                }
+                                
+                                .contact-intro > * + * {
+                                  margin-top: 1rem;
+                                }
+                                
+                                .contact-title {
+                                  font-size: 1.875rem;
+                                  line-height: 2.25rem;
+                                  font-weight: 700;
+                                }
+                                
+                                .contact-description {
+                                  color: rgb(107 114 128);
+                                }
+                                
+                                .form-group-container {
+                                  display: grid;
+                                  gap: 1rem;
+                                  margin-top: 2rem;
+                                }
+                                
+                                .form-group {
+                                  display: flex;
+                                  flex-direction: column;
+                                }
+                                
+                                .form-label {
+                                  margin-bottom: 0.5rem;
+                                }
+                                
+                                .form-input,
+                                .form-textarea {
+                                  padding: 0.5rem;
+                                  border: 1px solid #e5e7eb;
+                                  display: flex;
+                                  height: 2.5rem;
+                                  width: 100%;
+                                  border-radius: 0.375rem;
+                                  font-size: 0.875rem;
+                                  line-height: 1.25rem;
+                                }
+                                
+                                .form-input::placeholder,
+                                .form-textarea:focus-visible {
+                                  color: #6b7280;
+                                }
+                                
+                                .form-input:focus-visible,
+                                .form-textarea:focus-visible {
+                                  outline: 2px solid #00CCCC;
+                                  outline-offset: 2px;
+                                }
+                                
+                                .form-textarea {
+                                  min-height: 120px;
+                                }
+                                
+                                .form-submit {
+                                  width: 100%;
+                                  margin-top: 1.2rem;
+                                  background-color: #00CCCC;
+                                  color: #fff;
+                                  padding: 13px 5px;
+                                  border-radius: 0.375rem;
+                                }
+                              </style>
+    
+                    </div>
                     <!-- <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item">
                             <h4 class="text-white mb-4">Contact Info</h4>
@@ -307,15 +498,18 @@
                             </div>
                         </div>
                     </div> -->
-                    <div class="col-md-6 text-center text-md-start mb-md-0">
+                    <!-- <div class="col-md-6 text-center text-md-start mb-md-0">
                         <span class="text-body">SkySphere Technologies, All right reserved.</span>
-                    </div>
-                    <div class="col-md-6 text-center text-md-end text-body">
+                    </div> -->
+                    <!-- <div class="col-md-6 text-center text-md-end text-body"> -->
                         <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
                         <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
                         <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                        Designed By SkySphere
-                    </div>
+                        <!-- Designed By SkySphere -->
+                    <!-- </div> -->
+                </div>
+                <div class="col-md-6 text-center text-md-start mb-md-0">
+                    <span class="text-body">SkySphere Technologies, All right reserved.</span>
                 </div>
             </div>
         </div>

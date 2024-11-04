@@ -32,7 +32,23 @@
     </head>
 
     <body>
-
+        <script>document.addEventListener('copy', function(e) {
+            e.preventDefault();
+        });
+        
+        document.addEventListener('cut', function(e) {
+            e.preventDefault();
+        });
+        
+        document.addEventListener('paste', function(e) {
+            e.preventDefault();
+        });</script>
+        <style>body {
+            user-select: none; /* Standard syntax */
+            -moz-user-select: none; /* Firefox */
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+        }</style>
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -86,7 +102,7 @@
                         <a href="index.html" class="nav-item nav-link">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
                         <a href="service.html" class="nav-item nav-link">Services</a>
-                        <a href="team.html" class="nav-item nav-link">Our team</a>
+                        <a href="team.html" class="nav-item nav-link">Team</a>
                         <a href="career.html" class="nav-item nav-link active">Career</a>
                         <!-- <a href="testimonial.html" class="nav-item nav-link">Testimonial</a> -->
                         <!-- <div class="nav-item dropdown">
@@ -102,8 +118,9 @@
                                 <a href="404.html" class="dropdown-item">404 Page</a>
                             </div>
                         </div> -->
-                        <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
+                    <a href="register.html" class="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0">Register</a>
                     <!-- <a href="#" class="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0">Get Started</a> -->
                 </div>
             </nav>
@@ -111,11 +128,11 @@
             <!-- Header Start -->
             <div class="container-fluid bg-breadcrumb">
                 <div class="container text-center py-5" style="max-width: 900px;">
-                    <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Our Features</h4>
+                    <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">Career</h4>
                     <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item" style="color: #00cccc;"><a href="career.html"></a>Internship</li>
                         <!-- <li class="breadcrumb-item"><a href="#">Pages</a></li> -->
-                        <li class="breadcrumb-item active text-primary">Feature</li>
+                        <!-- <li class="breadcrumb-item active text-primary"></li> -->
                     </ol>    
                 </div>
             </div>
@@ -128,11 +145,30 @@
         <div class="container-fluid feature pb-5">
             <div class="container pb-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <h4 class="text-primary">Career</h4>
+                    <!-- <h4 class="text-primary">Career</h4> -->
                     <h1 class="display-5 mb-4">Connecting businesses, ideas, and people for greater impact.</h1>
-                    <p class="mb-0" style="text-align: justify;">A career in IT is a journey of continuous learning. Keep evolving to stay ahead!
+                    <p class="mb-0" style="text-align: center;">A career in IT is a journey of continuous learning. Keep evolving to stay ahead!
                     </p>
                 </div>
+                <!-- <strong style="color: black;">Careers at SkySphere Technologies</strong>
+                <p class="mb-0" style="text-align: justify;">
+                    At SkySphere Technologies Private Limited, we believe that our people are our greatest strength. We’re passionate about innovation, driven by a commitment to excellence, and always on the lookout for talented, ambitious individuals to join our growing team. Whether you’re a seasoned professional or a fresh graduate, SkySphere offers an environment where your skills, ideas, and potential are valued and nurtured.
+                </p>
+                <strong style="color: black;">Why Work With Us?</strong>
+                <p class="mb-0" style="text-align: justify;">
+                   <strong>Innovative Projects</strong> 
+                    Be part of groundbreaking projects that leverage cutting-edge technology to solve real-world problems. At SkySphere, you’ll have the opportunity to work on diverse, impactful projects across AI, IoT, software development, and more.
+                    <strong>Growth Opportunities</strong>
+                    We believe in empowering our team members to grow and reach their full potential. From continuous learning programs to mentorship from industry experts, SkySphere is dedicated to supporting your professional development at every stage of your career.
+                    <strong>Dynamic Work Culture</strong>
+                    Join a collaborative, inclusive, and forward-thinking culture that celebrates creativity and teamwork. We foster an environment where everyone’s voice is heard, and contributions are recognized.
+                    <strong>Work-Life Balance</strong>
+                    We understand the importance of maintaining a healthy work-life balance. Our policies are designed to provide flexibility, allowing our employees to excel at work while also enjoying time for personal growth and well-being.
+                </p>
+                <strong style="color: black;">Join Our Team</strong> 
+                <p class="mb-0" style="text-align: justify;">If you’re excited to be part of a forward-looking company, eager to work with like-minded, driven professionals, and ready to make an impact, SkySphere Technologies is the place for you. Explore our current openings and see how you can help us shape the future of technology.
+
+                </p> -->
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
                         <div class="feature-item p-4" style="background-color: 	#C0C0C0;">
@@ -143,7 +179,7 @@
                             <h4>Web Development</h4>
                             <p class="mb-4" style="text-align: justify;">Building the web pixel by pixel and Equip young minds with web development skills and watch their ideas come alive online.
                             </p>
-                            <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
+                            <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
@@ -155,7 +191,7 @@
                             <h4>App Development</h4>
                             <p class="mb-4" style="text-align: justify;">Turning your ideas into mobile magic and craft engaging apps that simplify your life, connect you to what matters, and elevate our business.
                             </p>
-                            <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
+                            <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
@@ -167,7 +203,7 @@
                             <h4>UI/UX</h4>
                             <p class="mb-4" style="text-align: justify;">Designing experiences that feel as good as they look and intuit UIs and seamless UXs that connect users to our brand.
                             </p>
-                            <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
+                            <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
@@ -179,11 +215,12 @@
                             <h4>Digital Marketing</h4>
                             <p class="mb-4" style="text-align: justify;">Dive into social media mastery, content creation magic, and data-driven strategies, equipping you to launch a thriving career in the dynamic world of digital marketing.
                             </p>
-                            <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
+                            <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
         <!-- Features End -->
 
@@ -256,6 +293,141 @@
                             <a href="#"><i class="fas fa-angle-right me-2"></i> Digital Marketing</a>
                         </div>
                     </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3">
+                        <div class="footer-item">
+                            <h4 class="text-white mb-4">Join Our Newsletter</h4>
+                            <div class="d-flex align-items-center">
+                                <p class="text-white mb-0" style="text-align: justify;">Be the first to know about exciting news & updates.</p>
+                            </div>                             
+                            <section class="contact-section">                            
+                                <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+                              
+                                  <input type="hidden" name="access_key" value="8d8ebc3f-89ff-44a3-b3b2-5c72e45f7c19" />
+                                  <input type="hidden" name="branding" value="false" />
+                            
+                                  <!-- <div class="form-group-container"> -->
+                                    <!-- <div class="form-group">
+                                      <label for="name" class="form-label">Name</label>
+                                      <input id="name" name="name" class="form-input" placeholder="Your name" type="text" required />
+                                    </div> -->
+                                    <div class="form-group">
+                                      <!-- <label for="email" class="form-label"></label> -->
+                                      <input id="email" name="email" class="form-input" placeholder="Your email" type="email" required />
+                                    </div>
+                                    <!-- <div class="form-group">
+                                      <label for="phone" class="form-label">Phone</label>
+                                      <input id="phone" name="phone" class="form-input" placeholder="Your number" type="text" />
+                                    </div> -->
+                                    <!-- <div class="form-group">
+                                      <label for="message" class="form-label">Message</label>
+                                      <textarea class="form-textarea" id="message" name="message" placeholder="Your message" required></textarea>
+                                    </div> -->
+                                  <!-- </div> -->
+                                  <button class="form-submit" type="submit">Send Message</button>
+                                </form>
+                            
+                                <div id="formSuccessMessage" style="display: none;">
+                                    <p>Subscribed</p>
+                                </div>
+                                
+                            </section>
+                            <script>
+                                document.getElementById("contactForm").addEventListener("submit", function(event) {
+                                    event.preventDefault(); // Prevent the default form submission
+                                    const formData = new FormData(this);
+                                    
+                                    fetch(this.action, {
+                                        method: "POST",
+                                        body: formData
+                                    })
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        if (data.success) {
+                                            document.getElementById("contactForm").style.display = "none";
+                                            document.getElementById("formSuccessMessage").style.display = "block";
+                                        } else {
+                                            alert("There was an error submitting the form. Please try again.");
+                                        }
+                                    })
+                                    .catch(error => console.error("Error:", error));
+                                });
+                            </script>
+                            <style>
+                                .contact-section {
+                                  width: 100%;
+                                  max-width: 40rem;
+                                  margin-left: auto;
+                                  margin-right: auto;
+                                  padding: 3rem 1rem;
+                                }
+                                
+                                .contact-intro > * + * {
+                                  margin-top: 1rem;
+                                }
+                                
+                                .contact-title {
+                                  font-size: 1.875rem;
+                                  line-height: 2.25rem;
+                                  font-weight: 700;
+                                }
+                                
+                                .contact-description {
+                                  color: rgb(107 114 128);
+                                }
+                                
+                                .form-group-container {
+                                  display: grid;
+                                  gap: 1rem;
+                                  margin-top: 2rem;
+                                }
+                                
+                                .form-group {
+                                  display: flex;
+                                  flex-direction: column;
+                                }
+                                
+                                .form-label {
+                                  margin-bottom: 0.5rem;
+                                }
+                                
+                                .form-input,
+                                .form-textarea {
+                                  padding: 0.5rem;
+                                  border: 1px solid #e5e7eb;
+                                  display: flex;
+                                  height: 2.5rem;
+                                  width: 100%;
+                                  border-radius: 0.375rem;
+                                  font-size: 0.875rem;
+                                  line-height: 1.25rem;
+                                }
+                                
+                                .form-input::placeholder,
+                                .form-textarea:focus-visible {
+                                  color: #6b7280;
+                                }
+                                
+                                .form-input:focus-visible,
+                                .form-textarea:focus-visible {
+                                  outline: 2px solid #00CCCC;
+                                  outline-offset: 2px;
+                                }
+                                
+                                .form-textarea {
+                                  min-height: 120px;
+                                }
+                                
+                                .form-submit {
+                                  width: 100%;
+                                  margin-top: 1.2rem;
+                                  background-color: #00CCCC;
+                                  color: #fff;
+                                  padding: 13px 5px;
+                                  border-radius: 0.375rem;
+                                }
+                              </style>
+    
+                    </div>
                     <!-- <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item">
                             <h4 class="text-white mb-4">Contact Info</h4>
@@ -283,15 +455,18 @@
                             </div>
                         </div>
                     </div> -->
-                    <div class="col-md-6 text-center text-md-start mb-md-0">
+                    <!-- <div class="col-md-6 text-center text-md-start mb-md-0">
                         <span class="text-body">SkySphere Technologies, All right reserved.</span>
                     </div>
-                    <div class="col-md-6 text-center text-md-end text-body">
+                    <div class="col-md-6 text-center text-md-end text-body"> -->
                         <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
                         <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
                         <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                        Designed By SkySphere
-                    </div>
+                        <!-- Designed By SkySphere
+                    </div> -->
+                </div>
+                <div class="col-md-6 text-center text-md-start mb-md-0">
+                    <span class="text-body">SkySphere Technologies, All right reserved.</span>
                 </div>
             </div>
         </div>

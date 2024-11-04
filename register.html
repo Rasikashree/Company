@@ -1,0 +1,567 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link rel="shortcut icon" type="x-icon" href="img/logo.png">
+  <title>SkySphere</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/static/assets/img/logo.png" rel="icon">
+  <link href="/staticassets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="/static/assets/css/reg.css"> -->
+  <script src='static/assets/vendor/popup/regpopup.js'></script>
+   <script>
+    function toggle() {
+      document.getElementById("popup-background").style.display = "block";
+    }
+    function toggleclose() {
+      document.getElementById("popup-background").style.display = "none";
+    }
+    function validateform() {
+      var name = document.forms["myForm"]["name"].value;
+      var email = document.forms["myForm"]["email"].value;
+      var phone = document.forms["myForm"]["phone"].value;
+      var checkbox = document.forms["myForm"]["checkbox"].checked;
+      var course = document.forms["myForm"]["course"].value;
+
+      // Name validation (not empty)
+      if (name == "") {
+        document.getElementById("nameError").innerHTML = "Name must be filled out";
+        return false;
+      } else {
+        document.getElementById("nameError").innerHTML = "";
+      }
+
+      // Email validation
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        document.getElementById("emailError").innerHTML = "Invalid email address";
+        return false;
+      } else {
+        document.getElementById("emailError").innerHTML = "";
+      }
+
+      // Phone validation (10 digits and only digits)
+      if (isNaN(phone) || phone.length != 10) {
+        document.getElementById("phoneError").innerHTML = "Phone number must be 10 digits";
+        return false;
+      } else {
+        document.getElementById("phoneError").innerHTML = "";
+      }
+
+      // Course validation
+      if (course == "course-type") {
+        document.getElementById("courseError").innerHTML = "Please select a course";
+        return false;
+      } else {
+        document.getElementById("courseError").innerHTML = "";
+      }
+
+      // Checkbox validation
+      if (!checkbox) {
+        document.getElementById("checkboxError").innerHTML = "Please agree to the Privacy Policy";
+        return false;
+      } else {
+        document.getElementById("checkboxError").innerHTML = "";
+      }
+
+      // Successful submit message
+      toggle(); // Show popup
+      return true;
+    }
+    window.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    });
+
+    window.addEventListener('keydown', function (e) {
+      if ((e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+        (e.ctrlKey && e.key === 'u')) {
+        e.preventDefault();
+      }
+    });
+
+  </script>
+  <script>
+    function showPopupMessage(message, type = 'success') {
+      var popupMessage = document.querySelector('.popup-message');
+      popupMessage.innerHTML = message;
+      popupMessage.className = 'popup-message alert-' + type;
+      popupMessage.style.display = 'block';
+
+      // Re-enable the submit button after showing the pop-up message
+      document.getElementById('submitBtn').disabled = false;
+
+      // Hide the pop-up message after 5 seconds
+      setTimeout(function () {
+        popupMessage.style.display = 'none';
+      }, 3000);
+    }
+
+    function handleSubmit(event, endpoint) {
+      event.preventDefault();
+
+      // Disable the submit button
+      document.getElementById('submitBtn').disabled = true;
+
+      // Fetch data from the form
+      var formData = new FormData(event.target);
+
+      // Make a POST request to the specified endpoint
+      fetch(endpoint, {
+        method: 'POST',
+        body: formData,
+      })
+        .then(response => response.text())
+        .then(data => {
+          if (data.trim() !== 'None') {
+            showPopupMessage(data, 'success');
+          }
+        })
+        .catch(error => {
+          showPopupMessage('An error occurred during form submission.', 'danger');
+        });
+    }
+  </script> 
+
+<style>
+      html,
+  body {
+      height: 100vh;
+  }
+
+  body,
+  div,
+  form,
+  input,
+  select {
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 16px;
+  }
+
+
+  body {
+      /* background: url("/uploads/media/default/0001/01/b5edc1bad4dc8c20291c8394527cb2c5b43ee13c.jpeg") no-repeat center; */
+      background-size: cover;
+  }
+
+  .popup-message {
+  bottom: 10px;
+  right: 10px;
+  position: fixed;
+  background-color:#fff;
+  border: 5px solid #00CCCC;
+  background:linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0.9) 90%);
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.47);
+  padding: 30px;
+  font-size: 18px;
+  color: #333;
+  z-index: 9999;
+  display: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  }
+
+  h1,
+  h2 {
+      text-transform: uppercase;
+      font-weight: bold;
+  }
+
+  h2 {
+      margin: 0 0 0 8px;
+  }
+
+  .main-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      height: 100vh;
+      /* Set height to 100% of the viewport height */
+      background: #fff;
+  }
+
+  .left-part,
+  form {
+      padding: 25px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
+
+  .left-part {
+      text-align: center;
+      background: #323635;
+      color: white;
+  }
+
+  .fa-graduation-cap {
+      font-size: 72px;
+  }
+
+  form {
+      background: white;
+  }
+
+  .title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+  }
+
+  .info {
+      display: flex;
+      flex-direction: column;
+  }
+
+  input,
+  select {
+      background: transparent;
+      color: #999b9b;
+      border: none;
+      border-bottom: 1px solid #d6d5d5;
+
+  }
+
+  input::placeholder {
+      color: #999b9b;
+  }
+
+  option:focus {
+      border: none;
+  }
+
+  option {
+      background: white;
+      border: none;
+  }
+
+  .checkbox input {
+      margin: 0 10px 0 0;
+      vertical-align: middle;
+  }
+
+  .checkbox a {
+      color: #26a9e0;
+  }
+
+  .checkbox a:hover {
+      color: #85d6de;
+  }
+
+  .card-quotes {
+      color: white;
+      text-align: left;
+      align-items: center;
+      width: auto;
+      font-size: 18px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  ul {
+      list-style: none;
+      line-height: 6vh;
+  }
+
+  ul li:before {
+      content: '\2714\0020';
+      color: #00CCCC;
+  }
+
+
+
+
+  .btn-item,
+  button {
+      padding: 10px 5px;
+      margin-top: 20px;
+      border-radius: 5px;
+      border: none;
+      background: #00CCCC;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 400;
+      color: #fff;
+  }
+
+  .btn-item {
+      display: inline-block;
+      margin: 20px 5px 0;
+  }
+
+  button {
+      width: 15%;
+  }
+
+
+
+  button:hover,
+  .btn-item:hover {
+      background: black;
+  }
+
+  button[type="submit"] {
+      width: 30%;
+      /* Ensure the button takes full width */
+      padding: 10px;
+      /* Adjust padding */
+      margin-top: 20px;
+      /* Add space between the form and the button */
+      border: none;
+      border-radius: 5px;
+      background: #070707;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s ease;
+  }
+
+  @media only screen and (max-width: 767px) {
+      button[type="submit"] {
+          width: 100%;
+      }
+
+      .card-quotes {
+          margin-left: 0;
+      }
+
+      ul {
+          list-style: none;
+          line-height: 3vh;
+      }
+  }
+
+  button[type="submit"]:hover {
+      background: #333;
+  }
+
+  @media (min-width: 768px) {
+
+      html,
+      body {
+          min-height: 100%;
+      }
+
+      .main-block {
+          flex-direction: row;
+      }
+      flash
+      .left-part,
+      form {
+          flex: 1;
+      }
+
+      button {
+          width: 100%;
+      }
+  }
+.right{
+  background-color: #ffffff;
+  height:100vh;
+}
+  
+</style>
+
+</head>
+
+<body>
+  <script>document.addEventListener('copy', function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener('cut', function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener('paste', function(e) {
+    e.preventDefault();
+});</script>
+<style>body {
+    user-select: none; /* Standard syntax */
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}</style>
+  <div class="main-block right">
+    <div class="left-part">
+      <i class="fas fa-graduation-cap" style="color: #00CCCC;"></i>
+      <h1>Register to get intern</h1>
+      <p style="font-size: 18px;">Ready to unleash your potential? Register for our internship program today!</p>
+
+      <div class="card-quotes">
+        <ul>
+          <li>Work hard, play hard</li>
+          <li>Find your tribe</li>
+          <li>Level Up Your Skills</li>
+          <li>Learn Fast, Grow Faster</li>
+      </div>
+    </div>
+
+    <section class="contact-section">
+      <div class="contact-intro">
+        <h2 class="contact-title">Get in Touch</h2>
+        <p class="contact-description">
+          Fill out the form below and we'll get back to you as soon as possible.
+        </p>
+      </div>
+  
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+    
+        <input type="hidden" name="access_key" value="8d8ebc3f-89ff-44a3-b3b2-5c72e45f7c19" />
+        <input type="hidden" name="branding" value="false" />
+  
+        <div class="form-group-container">
+          <div class="form-group">
+            <label for="name" class="form-label">Name</label>
+            <input id="name" name="name" class="form-input" placeholder="Your name" type="text" required />
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email</label>
+            <input id="email" name="email" class="form-input" placeholder="Your email" type="email" required />
+          </div>
+          <div class="form-group">
+            <label for="phone" class="form-label">Phone</label>
+            <input id="phone" name="phone" class="form-input" placeholder="Your number" type="text" />
+          </div>
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-textarea" id="message" name="message" placeholder="Your message" required></textarea>
+          </div>
+        </div>
+        <button class="form-submit" type="submit">Send Message</button>
+      </form>
+  
+      <div id="formSuccessMessage" style="display: none;">
+          <p>Form submitted successfully! Thank you! We will reply to you soon!</p>
+      </div>
+  </section>
+
+
+<script>
+      document.getElementById("contactForm").addEventListener("submit", function(event) {
+          event.preventDefault(); // Prevent the default form submission
+          const formData = new FormData(this);
+          
+          fetch(this.action, {
+              method: "POST",
+              body: formData
+          })
+          .then(response => response.json())
+          .then(data => {
+              if (data.success) {
+                  document.getElementById("contactForm").style.display = "none";
+                  document.getElementById("formSuccessMessage").style.display = "block";
+              } else {
+                  alert("There was an error submitting the form. Please try again.");
+              }
+          })
+          .catch(error => console.error("Error:", error));
+      });
+  </script>
+
+
+
+<style>
+.contact-section {
+width: 100%;
+max-width: 40rem;
+margin-left: auto;
+margin-right: auto;
+padding: 3rem 1rem;
+}
+
+.contact-intro > * + * {
+margin-top: 1rem;
+}
+
+.contact-title {
+font-size: 1.875rem;
+line-height: 2.25rem;
+font-weight: 700;
+}
+
+.contact-description {
+color: rgb(107 114 128);
+}
+
+.form-group-container {
+display: grid;
+gap: 1rem;
+margin-top: 2rem;
+}
+
+.form-group {
+display: flex;
+flex-direction: column;
+}
+
+.form-label {
+margin-bottom: 0.5rem;
+}
+
+.form-input,
+.form-textarea {
+padding: 0.5rem;
+border: 1px solid #e5e7eb;
+display: flex;
+height: 2.5rem;
+width: 100%;
+border-radius: 0.375rem;
+font-size: 0.875rem;
+line-height: 1.25rem;
+}
+
+.form-input::placeholder,
+.form-textarea:focus-visible {
+color: #6b7280;
+}
+
+.form-input:focus-visible,
+.form-textarea:focus-visible {
+outline: 2px solid #00CCCC;
+outline-offset: 2px;
+}
+
+.form-textarea {
+min-height: 120px;
+}
+
+.form-submit {
+width: 100%;
+margin-top: 1.2rem;
+background-color: #00CCCC;
+color: #fff;
+padding: 13px 5px;
+border-radius: 0.375rem;
+}
+</style>
+       <section id="popup-background" style="display: none;">
+      <div id="popup">
+        <i class="ri-close-circle-fill" type="button" style="float: right; size: 10px;" onclick="toggleclose()"></i>
+        <div style="display: flex;flex-direction: row;">
+          <!-- <div style="width: 50%;" class="explore-quotes">
+            <p>Thank you for registering!</p>
+          </div> -->
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>
