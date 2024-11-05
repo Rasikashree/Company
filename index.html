@@ -100,7 +100,7 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
                         <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="#about" class="nav-item nav-link">About</a>
                         <a href="service.html" class="nav-item nav-link">Services</a>
                         <a href="career.html" class="nav-item nav-link">Career</a>
                         <a href="team.html" class="nav-item nav-link">Team</a>
@@ -126,80 +126,196 @@
             </nav>
 
             <!-- Cargiousel Start -->
-            <div class="header-carousel owl-carousel">
-                <div class="header-carousel-item">
-                  <img src="img/bg.jpg" class="img-fluid w-100" alt="Image">
-                  <div class="carousel-caption">
+            <div class="header-section">
+                <img src="img/bg.png" class="img-fluid w-100" alt="Background Image">
+                <div class="overlay">
                     <div class="container">
-                      <div class="row gy-0 gx-5">
-                        <div class="col-lg-0 col-xl-5"></div>
-                        <div class="col-xl-7 animated fadeInLeft">
-                            <div class="text-sm-start" style="text-align: left;">
-                                <h2 style="color: #fff; margin: 0;">Success is not about avoiding failures but about embracing them as opportunities for growth.</h2>
-                                <button class="btn btn-primary" onclick="toggleFormPopup()">Explore</button>
-                            </div>
+                        <div class="text-content">
+                            <h2>Success is not about avoiding failures<br>but about embracing them as opportunities for growth.</h2>
+                            <button onclick="toggleFormPopup()" style="font-size: 20px; padding: 5px 10px; border-radius: 5px; background-color: #007bff; color: white; border: none;">Explore</button>
                         </div>
-                        <style>.text-sm-start {
-                            position: relative; /* Ensure positioning context */
-                            left: 0; /* Align to the left */
-                            top: 0; /* Align to the top if needed */
-                        }</style>
-                        
-                        
-                      </div>
                     </div>
-                  </div>
                 </div>
-              </div>
+            </div>
+            
+            <!-- Custom JavaScript -->
+            <script src="scripts.js"></script>
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+            
+                body {
+                    font-family: Arial, sans-serif;
+                }
+            
+                .header-section {
+                    position: relative;
+                    width: 100%;
+                    height: 100vh; /* Full viewport height */
+                    overflow: hidden;
+                }
+            
+                .header-section img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    opacity: 0.8;
+                }
+            
+                .overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.4); /* Dark overlay for better text visibility */
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            
+                .text-content {
+                    color: #ffffff; /* Ensures text is in white */
+                    text-align: left;
+                    max-width: 800px;
+                }
+            
+                .text-content h2 {
+                
+                    margin-bottom: 30px;
+                    color: #ffffff; /* Ensures the heading is in white */
+                    line-height: 1.2; /* Adjusts spacing between lines */
+                }
+            
+                
+            </style>
               
               <!-- Explore Form Modal -->
-              <div id="form-popup" class="form-popup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000; border-radius: 8px;">
-                <i class="fas fa-times exit-icon" onclick="toggleFormPopup()" style="float: right; cursor: pointer;"></i>
-                <div class="form-popup-header">
-                  <h2 style="color: black; margin-bottom: 15px; text-align: center;">Welcome! Let's Explore</h2>
-                  <p style="text-align: center;">Tired of endless searching? We curate connections that click. Register your business and find the ideal solution for your problems, effortlessly.</p>
-                </div>
-                <form method="POST" class="welcome-form" action="/submit_form" onsubmit="handleSubmit(event, '/submit_form')" style="align-content: center;">
-                  <div class="eform-group" style="margin-bottom: 15px;">
-                    <input type="text" class="eform-control" placeholder="First Name" name="first_name" style="width: 90%; height: 50px; margin-left: 5%; border: 1px solid #6b7280; border-radius: 10px;" required />
-                  </div>
-                  <div class="eform-group" style="margin-bottom: 15px;">
-                    <input type="text" class="eform-control" placeholder="Last Name" name="last_name" style="width: 90%; height: 50px; margin-left: 5%; border: 1px solid #6b7280; border-radius: 10px;" required />
-                  </div>
-                  <div class="eform-group" style="margin-bottom: 15px;">
-                    <input type="tel" class="eform-control" id="phone_number" name="phone_number" placeholder="Phone Number" pattern="[0-9]{10}" title="Enter a valid 10-digit phone number" maxlength="10" style="width: 90%; height: 50px; margin-left: 5%; border: 1px solid #6b7280; border-radius: 10px;" required />
-                  </div>
-                  <div class="eform-group" style="margin-bottom: 15px;">
-                    <input type="email" class="eform-control" placeholder="Email" name="email" style="width: 90%; height: 50px; margin-left: 5%; border: 1px solid #6b7280; border-radius: 10px;" required />
-                  </div>
-                  <!-- <div class="eform-group" style="margin-bottom: 15px;">
-                    <textarea class="form-control" name="message" rows="4" placeholder="Message" style="width: 90%; margin-left: 5%; border: 1px solid #6b7280; border-radius: 10px;" required></textarea>
-                  </div> -->
-                  <div style="text-align: center;">
-                    <button type="submit" class="btn btn-primary" style="margin: 0 auto;">Submit</button>
-                  </div>
-                  <br>
-                  <div style="text-align: center;">
-                    <span>By proceeding you agree to the
-                      <a href="/termofservice">Terms</a> and <a href="/privacypolicy">Privacy Policy</a>.
-                    </span>
-                  </div>
-                </form>
-              </div>
-              
-              <!-- JavaScript to toggle the modal -->
-              <script>
-                function toggleFormPopup() {
-                  const formPopup = document.getElementById("form-popup");
-                  formPopup.style.display = formPopup.style.display === "none" ? "block" : "none";
-                }
-              </script>
-              
-        <!-- Navbar & Hero End -->
 
+
+<!-- Modal Popup -->
+<div id="form-popup" class="form-popup">
+    <i class="fas fa-times exit-icon" onclick="toggleFormPopup()"></i>
+    <div class="form-popup-header">
+        <h2>Welcome! Let's Explore</h2>
+        <p>Register your business and find the ideal solution for your problems, effortlessly.</p>
+    </div>
+    <form method="POST" class="welcome-form" action="/submit_form">
+        <div class="eform-group">
+            <input type="text" class="eform-control" placeholder="First Name" name="first_name" required />
+        </div>
+        <div class="eform-group">
+            <input type="text" class="eform-control" placeholder="Last Name" name="last_name" required />
+        </div>
+        <div class="eform-group">
+            <input type="tel" class="eform-control" id="phone_number" name="phone_number" placeholder="Phone Number" pattern="[0-9]{10}" maxlength="10" required />
+        </div>
+        <div class="eform-group">
+            <input type="email" class="eform-control" placeholder="Email" name="email" required />
+        </div>
+        <center><button type="submit" class="btn" style="background-color: #00CCCC; color: white;">Submit</button></center>
+    </form>
+</div>
+
+<!-- JavaScript for Toggle -->
+<script>
+    function toggleFormPopup() {
+        const formPopup = document.getElementById("form-popup");
+        formPopup.classList.toggle("show-popup");
+    }
+</script>
+
+<!-- CSS for Animation and Styling -->
+<style>
+    /* Basic styling */
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    /* Modal initial hidden state */
+    .form-popup {
+        display: none; /* Hidden initially */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 500px;
+        background-color: white;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        border-radius: 8px;
+        animation: fadeInDown 0.5s ease forwards; /* Animation effect */
+    }
+
+    /* Show popup */
+    .show-popup {
+        display: block;
+    }
+
+    /* Fade and slide down animation */
+    @keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            transform: translate(-50%, -60%);
+        }
+        100% {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    /* Exit icon */
+    .exit-icon {
+        float: right;
+        cursor: pointer;
+        font-size: 18px;
+        padding: 5px;
+        color: #888;
+    }
+
+    /* Form and button styles */
+    .form-popup-header {
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .eform-group {
+        margin-bottom: 15px;
+    }
+
+    .eform-control {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #6b7280;
+        border-radius: 5px;
+    }
+
+    /* .btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    } */
+</style>
+        <!-- Navbar & Hero End -->
+         
 
         <!-- Abvout Start -->
-        <div class="container-fluid about py-5">
+        <div id="about" class="container-fluid about py-5">
             <div class="container py-5">
                 <div class="row g-5 align-items-center">
                     <div class="col-xl-7 wow fadeInLeft" data-wow-delay="0.2s">
@@ -208,8 +324,13 @@
                             <h1 class="display-5 mb-4">Meet our company</h1>
                             <p class="mb-4" style="text-align: justify;">Welcome to SkySphere Technologies Private Limited, where innovation meets excellence. Founded with a vision to push the boundaries of technology, SkySphere Technologies specializes in creating cutting-edge solutions that empower businesses and individuals alike. Our expertise spans a wide array of fields, including software development, artificial intelligence, machine learning, and IoT, tailored to meet the unique needs of diverse industries.
                             </p>
+                            <p class="mb-4" style="text-align: justify;">Our core values of integrity, quality, and continuous improvement are at the heart of everything we do. We believe in fostering long-term partnerships and delivering exceptional value through robust, efficient, and reliable products. At SkySphere Technologies, we are not just building technology – we’re shaping the future.
+                            </p>
+                            <p class="mb-4" style="text-align: justify;">
+                                Join us on this journey as we continue to push the frontiers of technology and create solutions that make a difference.
+                            </p>
                             <div class="row g-4">
-                                <div class="col-md-6 col-lg-6 col-xl-6">
+                                <!-- <div class="col-md-6 col-lg-6 col-xl-6">
                                     <div class="d-flex">
                                         <div><i class="fas fa-lightbulb fa-3x text-primary"></i></div>
                                         <div class="ms-4">
@@ -217,7 +338,7 @@
                                             <p>Expert consulting to drive innovation and optimize solutions.</p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- <div class="col-md-6 col-lg-6 col-xl-6">
                                     <div class="d-flex">
                                         <div><i class="bi bi-bookmark-heart-fill fa-3x text-primary"></i></div>
@@ -230,15 +351,15 @@
                                 <!-- <div class="col-sm-6">
                                     <a href="#" class="btn btn-primary rounded-pill py-3 px-5 flex-shrink-0">Discover Now</a>
                                 </div> -->
-                                <div class="col-sm-6">
+                                <!-- <div class="col-sm-6">
                                     <div class="d-flex">
                                         <i class="fas fa-phone-alt fa-2x text-primary me-4"></i>
                                         <div>
                                             <h4>Call Us</h4>
-                                            <p class="mb-0 fs-5" style="letter-spacing: 1px;">+91 9442251415</p>
+                                            <p class="mb-0 fs-5" style="letter-spacing: 1px;">+91 9442290033</p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -263,7 +384,7 @@
         <!-- About End -->
 
         <!-- Services Start -->
-        <div class="container-fluid service pb-5" style="background-image: url('img/bg.jpg');">
+        <div class="container-fluid service pb-5" style="background-image: url('img/bg.png');">
             <div class="container pb-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                     <h4 class="text-primary">Our Services</h4>
@@ -359,6 +480,7 @@
                 </div>
             </div>
         </div>
+        
         <!-- Services End -->
 
         
@@ -606,8 +728,8 @@
             <div class="container pb-5 overflow-hidden">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                     <h4 class="text-primary">FAQs</h4>
-                    <h1 class="display-5 mb-4" style="color: white;">Frequently Asked Questions</h1>
-                    <p class="mb-0" style="color: white;">Here are some of the most common inquiries we receive about our services, timelines, and processes. If you don’t find what you’re looking for, feel free to reach out—we’re here to help!"
+                    <h1 class="display-5 mb-4" style="color: black">Frequently Asked Questions</h1>
+                    <p class="mb-0" style="color: black;">Here are some of the most common inquiries we receive about our services, timelines, and processes. If you don’t find what you’re looking for, feel free to reach out—we’re here to help!"
                     </p>
                 </div>
                 <div class="row g-5 align-items-center">
@@ -687,7 +809,7 @@
 
 
         <!-- Team Start -->
-        <div class="container-fluid team pb-5" style="background-image: url('img/section.jpg');">
+        <!-- <div class="container-fluid team pb-5" style="background-image: url('img/section.jpg');">
             <div class="container pb-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                     <h4 class="text-primary">Our Team</h4>
@@ -704,14 +826,14 @@
                             <div class="team-title">
                                 <h4 class="mb-0" >Nakul V</h4>
                                 <p class="mb-0">Founder - CEO</p>
-                            </div>
+                            </div> -->
                             <!-- <div class="team-icon">
                                 <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
                                 <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
                                 <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
                             </div> -->
-                        </div>
+                        <!-- </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
                         <div class="team-item">
@@ -721,14 +843,14 @@
                             <div class="team-title">
                                 <h4 class="mb-0">Rasikashree S</h4>
                                 <p class="mb-0">Co-Founder - CTO</p>
-                            </div>
+                            </div> -->
                             <!-- <div class="team-icon">
                                 <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
                                 <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
                                 <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
                             </div> -->
-                        </div>
+                        <!-- </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
                         <div class="team-item">
@@ -738,14 +860,14 @@
                             <div class="team-title">
                                 <h4 class="mb-0">Shanmuga Priyan G</h4>
                                 <p class="mb-0">Vice President - HR</p>
-                            </div>
+                            </div> -->
                             <!-- <div class="team-icon">
                                 <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
                                 <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
                                 <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
                             </div> -->
-                        </div>
+                        <!-- </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
                         <div class="team-item">
@@ -755,15 +877,15 @@
                             <div class="team-title">
                                 <h4 class="mb-0">Harshitha V</h4>
                                 <p class="mb-0">COO</p>
-                            </div>
+                            </div> -->
                             <!-- <div class="team-icon">
                                 <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
                                 <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
                                 <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
                             </div> -->
-                        </div>
-                    </div>
+                        <!-- </div>
+                    </div> -->
                     <!-- <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
                         <div class="team-item">
                             <div class="team-img">
@@ -781,9 +903,9 @@
                             </div>
                         </div>
                     </div> -->
-                </div>
+                <!-- </div>
             </div>
-        </div>
+        </div> -->
         <!-- Team End -->
 
         <!-- Testimonial Start -->
