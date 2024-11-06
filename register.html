@@ -73,7 +73,6 @@
     }
 
     .left-panel {
-      /* background: #002746; */
       background: linear-gradient(90deg, rgba(12,8,73,1) 0%, rgba(22,22,92,1) 35%, rgba(0,204,204,1) 100%);
       width: 35%;
       display: flex;
@@ -252,159 +251,84 @@
         height: auto;
       }
     }
+    .privacy-policy a {
+      color: #00cccc;
+    }
   </style>
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
 </head>
 
 <body>
 
-<div class="container">
-  <div class="left-panel">
-    <i class="fas fa-user-graduate"></i>
-    <h1>SkySphere Internship</h1>
-    <p>Enhance your skills and gain real-world experience. Register now to take your career to the next level!</p>
+  <div class="container">
+    <div class="left-panel">
+      <i class="fas fa-user-graduate"></i>
+      <h1>SkySphere Internship</h1>
+      <p>Enhance your skills and gain real-world experience. Register now to take your career to the next level!</p>
+    </div>
+  
+    <div class="right-panel">
+      <div class="form-container">
+        <h2>Register Now</h2>
+        
+        <form id="registrationForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="8d8ebc3f-89ff-44a3-b3b2-5c72e45f7c19" />
+          <input type="hidden" name="branding" value="false" />
+  
+          <div class="form-group">
+            <input type="text" id="name" name="name" placeholder=" " required>
+            <label for="name">Name</label>
+          </div>
+  
+          <div class="form-group">
+            <input type="email" id="email" name="email" placeholder=" " required>
+            <label for="email">Email</label>
+          </div>
+  
+          <div class="form-group">
+            <input type="tel" id="phone" name="phone" placeholder=" " pattern="[0-9]{10}" required>
+            <label for="phone">Phone</label>
+          </div>
+  
+          <div class="form-group">
+            <textarea id="message" name="message" rows="4" placeholder=" " required></textarea>
+            <label for="message">Message</label>
+          </div>
+          <div class="privacy-policy">
+            <input type="checkbox" id="privacyPolicy" required>
+            <label for="privacyPolicy">I agree to the <a href="privacypolicy.html" target="_blank">Privacy Policy</a>.</label>
+          </div>
+          <br/>
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
+  
+        <div id="formSuccessMessage" class="success-message">
+          <p>Registration successful! Thank you! We will get back to you soon!</p>
+        </div>
+      </div>
+    </div>
   </div>
+  
+  <script>
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent the default form submission
+      const formData = new FormData(this);
+      
+      fetch(this.action, {
+          method: "POST",
+          body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+          if (data.success) {
+              document.getElementById("registrationForm").style.display = "none"; // Hide the form
+              document.getElementById("formSuccessMessage").style.display = "block"; // Show success message
+          } else {
+              alert("There was an error submitting the form. Please try again.");
+          }
+      })
+      .catch(error => console.error("Error:", error));
+    });
+  </script>
 
-  <div class="right-panel">
-    <div class="form-container">
-      <h2>Register Now</h2>
-      <form id="registrationForm" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY" />
-        <input type="hidden" name="branding" value="false" />
-
-        <div class="form-group">
-          <input type="text" id="name" name="name" placeholder=" " required>
-          <label for="name">Name</label>
-        </div>
-
-        <div class="form-group">
-          <input type="email" id="email" name="email" placeholder=" " required>
-          <label for="email">Email</label>
-        </div>
-        <div class="form-group">
-          <input type="tel" id="phone" name="phone" placeholder=" " pattern="[0-9]{10}" required>
-          <label for="phone">Phone</label>
-        </div>
-
-        <div class="form-group">
-          <textarea id="message" name="message" rows="4" placeholder=" " required></textarea>
-          <label for="message">Message</label>
-        </div>
-
-        <button type="submit" class="submit-btn">Submit</button>
-
-        <div class="form-group">
-         
+</body>
+</html>
