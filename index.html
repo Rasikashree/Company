@@ -189,175 +189,139 @@
                     margin-bottom: 30px;
                     color: #ffffff; /* Ensures the heading is in white */
                     line-height: 1.2; /* Adjusts spacing between lines */
-                }
-            
-                
-            </style>
-              
-              <!-- Explore Form Modal -->
-
-
-<!-- Modal Popup -->
-<div id="form-popup" class="form-popup">
-    <i class="fas fa-times exit-icon" onclick="toggleFormPopup()"></i>
-    <div class="form-popup-header">
-        <h2>Welcome! Let's Explore</h2>
-        <p>Register your business and find the ideal solution for your problems, effortlessly.</p>
-    </div>
-    <form id="registrationForm" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="8d8ebc3f-89ff-44a3-b3b2-5c72e45f7c19" />
-        <input type="hidden" name="branding" value="false" />
-
-        <div class="form-group">
-          <input type="text" id="name" name="name" placeholder=" " required>
-          <label for="name">Name</label>
+                }    
+            </style><!-- Modal Popup -->
+            <!-- <form> -->
+            <div id="form-popup" class="form-popup">
+              <i class="fas fa-times exit-icon" onclick="toggleFormPopup()"></i>
+              <div class="form-popup-header">
+                <h2>Welcome! Let's Explore</h2>
+                <p>Register your business and find the ideal solution for your problems, effortlessly.</p>
+              </div>
+              <form id="registrationForm" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="8d8ebc3f-89ff-44a3-b3b2-5c72e45f7c19" />
+                <input type="hidden" name="branding" value="false" />
+                <div class="form-group">
+                  <input type="text" id="name" name="name" placeholder=" " required>
+                  <label for="name">Name</label>
+                </div>
+                <div class="form-group">
+                  <input type="email" id="email" name="email" placeholder=" " required>
+                  <label for="email">Email</label>
+                </div>
+                <div class="form-group">
+                  <input type="tel" id="phone" name="phone" placeholder=" " pattern="[0-9]{10}" required>
+                  <label for="phone">Phone</label>
+                </div>
+                <div class="form-group">
+                  <textarea id="message" name="message" rows="4" placeholder=" " required></textarea>
+                  <label for="message">Message</label>
+                </div>
+                <div class="privacy-policy">
+                  <input type="checkbox" id="privacyPolicy" required>
+                  <label for="privacyPolicy">I agree to the <a href="privacypolicy.html" target="_blank">Privacy Policy</a>.</label>
+                </div>
+                <br/>
+                <button type="submit" class="submit-btn">Submit</button>
+              </form>
+              <div id="formSuccessMessage" class="success-message">
+                <p>Registration successful! Thank you! We will get back to you soon!</p>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div class="form-group">
-          <input type="email" id="email" name="email" placeholder=" " required>
-          <label for="email">Email</label>
-        </div>
-
-        <div class="form-group">
-          <input type="tel" id="phone" name="phone" placeholder=" " pattern="[0-9]{10}" required>
-          <label for="phone">Phone</label>
-        </div>
-
-        <div class="form-group">
-          <textarea id="message" name="message" rows="4" placeholder=" " required></textarea>
-          <label for="message">Message</label>
-        </div>
-        <div class="privacy-policy">
-          <input type="checkbox" id="privacyPolicy" required>
-          <label for="privacyPolicy">I agree to the <a href="privacypolicy.html" target="_blank">Privacy Policy</a>.</label>
-        </div>
-        <br/>
-        <button type="submit" class="submit-btn">Submit</button>
-      </form>
-
-      <div id="formSuccessMessage" class="success-message">
-        <p>Registration successful! Thank you! We will get back to you soon!</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-  document.getElementById("registrationForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the default form submission
-    const formData = new FormData(this);
-    
-    fetch(this.action, {
-        method: "POST",
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
+        <!-- Explore Form Modal -->
+        <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+          event.preventDefault(); // Prevent the default form submission
+          const formData = new FormData(this);
+          fetch(this.action, {
+            method: "POST",
+            body: formData
+          })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
             document.getElementById("registrationForm").style.display = "none"; // Hide the form
             document.getElementById("formSuccessMessage").style.display = "block"; // Show success message
-        } else {
+            } else {
             alert("There was an error submitting the form. Please try again.");
-        }
-    })
-    .catch(error => console.error("Error:", error));
-  });
-</script>
-</div>
-
-<!-- JavaScript for Toggle -->
-<script>
-    function toggleFormPopup() {
-        const formPopup = document.getElementById("form-popup");
-        formPopup.classList.toggle("show-popup");
-    }
-</script>
-
-<!-- CSS for Animation and Styling -->
-<style>
-    /* Basic styling */
-    body {
-        font-family: Arial, sans-serif;
-    }
-
-    /* Modal initial hidden state */
-    .form-popup {
-        display: none; /* Hidden initially */
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 90%;
-        max-width: 500px;
-        background-color: white;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        z-index: 1000;
-        border-radius: 8px;
-        animation: fadeInDown 0.5s ease forwards; /* Animation effect */
-    }
-
-    /* Show popup */
-    .show-popup {
-        display: block;
-    }
-
-    /* Fade and slide down animation */
-    @keyframes fadeInDown {
-        0% {
-            opacity: 0;
-            transform: translate(-50%, -60%);
-        }
-        100% {
-            opacity: 1;
+          }
+        })
+        .catch(error => console.error("Error:", error));
+        });
+        </script>
+        </div>
+        <!-- JavaScript for Toggle -->
+         <script>
+         function toggleFormPopup() {
+          const formPopup = document.getElementById("form-popup");
+          formPopup.classList.toggle("show-popup");
+          }
+          </script>
+          <!-- CSS for Animation and Styling -->
+           <style>
+           /* Basic styling */
+           body {
+            font-family: Arial, sans-serif;
+          }
+          /* Modal initial hidden state */
+          .form-popup {
+            display: none; /* Hidden initially */
+            position: fixed;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
-        }
-    }
+            width: 90%;
+            max-width: 500px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border-radius: 8px;
+            animation: fadeInDown 0.5s ease forwards; /* Animation effect */
+          }
+          /* Show popup */
+          .show-popup {
+            display: block;
+          }
+          /* Fade and slide down animation */
+          @keyframes fadeInDown {
+                 0% {
+                  opacity: 0;
+                  transform: translate(-50%, -60%);
+                }
+                100% {
+                  opacity: 1;
+                  transform: translate(-50%, -50%);
+                }
+              }
+              /* Exit icon */
+              .exit-icon {
+                float: right;
+                cursor: pointer;
+                font-size: 18px;
+                padding: 5px;
+                color: #888;
+              }
+              /* Form and button styles */
+              .form-popup-header {
+                text-align: center;
+                margin-bottom: 15px;
+              }
+              .eform-group {
+                margin-bottom: 15px;
+              }
+              .eform-control {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #6b7280;
+                border-radius: 5px;
+              }
+            </style>
+        </div>
+            
 
-    /* Exit icon */
-    .exit-icon {
-        float: right;
-        cursor: pointer;
-        font-size: 18px;
-        padding: 5px;
-        color: #888;
-    }
-
-    /* Form and button styles */
-    .form-popup-header {
-        text-align: center;
-        margin-bottom: 15px;
-    }
-
-    .eform-group {
-        margin-bottom: 15px;
-    }
-
-    .eform-control {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #6b7280;
-        border-radius: 5px;
-    }
-
-    /* .btn {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        text-align: center;
-    }
-
-    .btn:hover {
-        background-color: #0056b3;
-    } */
-</style>
-</div>
-</div>
         <!-- Navbar & Hero End -->
          
 
@@ -581,8 +545,8 @@
                     height: 300px;
                 }
             }
-        </style>
-        </div>
+      </style>
+      </div>
         
     
       
@@ -609,108 +573,111 @@
               transform: translateY(-10px);
               box-shadow: 0 0 20px rgba(0, 204, 204, 0.7), 0 0 30px rgba(0, 204, 204, 0.5);
           }
-      </style>
+        </style>
       </div>
       
         <!-- About End -->
 
          
          <!-- Services Start -->
-        <div id="service" class="container-fluid service pb-5" style="background-image: url('img/bg.jpg');">
-          <div class="container pb-5">
-              <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                  <h4 class="text-primary" style="font-size: x-large;">Our Services</h4>
-                  <h1 class="display-5 mb-4" style="color: white;">We Services provided best offer</h1>
-                  <p class="mb-0" style="color: white;">
+      <div id="service" class="container-fluid service pb-5" style="background-image: url('img/bg.jpg');">
+        <div class="container pb-5">
+          <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <h4 class="text-primary" style="font-size: x-large;">Our Services</h4>
+              <h1 class="display-5 mb-4" style="color: white;">We Services provided best offer</h1>
+                <p class="mb-0" style="color: white;">
                       Fueling your vision with custom software, secure cloud solutions, and unbeatable cybersecurity—our IT
                       services transform challenges into growth, innovation, and success. Let’s build the future together, one
                       solution at a time.
-                  </p>
+                </p>
               </div>
-              <div class="row g-4">
-                  <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
-                      <div class="service-item" style="height: 100%;">
-                          <div class="service-img">
-                              <img src="img/Web Development.jpg" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
-                          </div>
-                          <div class="rounded-bottom p-4" style="height: 100%;">
-                              <a href="#" class="h4 d-inline-block mb-4">Web Development</a>
-                              <p class="mb-4" style="text-align: justify;">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="service-item" style="height: 100%;">
+                        <div class="service-img">
+                            <img src="img/Web Development.jpg" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
+                        </div>
+                        <div class="rounded-bottom p-4" style="height: 100%;">
+                            <a href="#" class="h4 d-inline-block mb-4">Web Development</a>
+                            <p class="mb-4" style="text-align: justify;">
                                   We craft stunning, immersive websites that breathe life into your brand and captivate your
                                   audience. Merging artistry with technology, our web development services create unforgettable
                                   digital experiences that resonate and inspire action.
-                              </p>
+                            </p>
                               <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
-                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+                  <div class="service-item" style="height: 100%;">
+                      <div class="service-img">
+                          <img src="img/App Development.png" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
+                      </div>
+                      <div class="rounded-bottom p-4" style="height: 100%;">
+                        <a href="#" class="h4 d-inline-block mb-4">App Development</a>
+                        <p class="mb-4" style="text-align: justify;">Our agile development process ensures flexibility and timely delivery, while our cross-platform solutions maximize your reach. Let's create future-proof apps that inspire engagement and drive success.
+                        </p>
+                              <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
+                        </div>
                       </div>
                   </div>
-                  <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
-                      <div class="service-item" style="height: 100%;">
-                          <div class="service-img">
-                              <img src="img/App Development.png" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
-                          </div>
-                          <div class="rounded-bottom p-4" style="height: 100%;">
-                              <a href="#" class="h4 d-inline-block mb-4">App Development</a>
-                              <p class="mb-4" style="text-align: justify;">Our agile development process ensures flexibility and timely delivery, while our cross-platform solutions maximize your reach. Let's create future-proof apps that inspire engagement and drive success.
-                              </p>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                  <div class="service-item" style="height: 100%;">
+                    <div class="service-img">
+                      <img src="img/AI.jpg" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
+                    </div>
+                    <div class="rounded-bottom p-4" style="height: 100%;">
+                      <a href="#" class="h4 d-inline-block mb-4">AI</a>
+                      <p class="mb-4" style="text-align: justify;">Our AI-driven applications enhance decision-making, automate processes, and elevate user experiences, empowering your business to stay ahead in a rapidly evolving landscape. Let’s unlock the potential of AI together and redefine the future of your organization.
+                      </p>
                               <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
-                          </div>
-                      </div>
+                    </div>
                   </div>
-                  <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
-                      <div class="service-item" style="height: 100%;">
-                          <div class="service-img">
-                              <img src="img/AI.jpg" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
-                          </div>
-                          <div class="rounded-bottom p-4" style="height: 100%;">
-                              <a href="#" class="h4 d-inline-block mb-4">AI</a>
-                              <p class="mb-4" style="text-align: justify;">Our AI-driven applications enhance decision-making, automate processes, and elevate user experiences, empowering your business to stay ahead in a rapidly evolving landscape. Let’s unlock the potential of AI together and redefine the future of your organization.
-                              </p>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                  <div class="service-item" style="height: 100%;">
+                    <div class="service-img">
+                      <img src="img/UIUX.jpg" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
+                    </div>
+                    <div class="rounded-bottom p-4" style="height: 100%;">
+                      <a href="#" class="h4 d-inline-block mb-4">UI/UX</a>
+                      <p class="mb-4" style="text-align: justify;">Our UI/UX design process blends creativity with functionality, ensuring that every interaction is seamless and delightful. Let’s transform your vision into a captivating user journey that keeps your audience coming back for more!
+                      </p>
                               <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
-                          </div>
-                      </div>
+                    </div>
                   </div>
-                  <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
-                      <div class="service-item" style="height: 100%;">
-                          <div class="service-img">
-                              <img src="img/UIUX.jpg" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
-                          </div>
-                          <div class="rounded-bottom p-4" style="height: 100%;">
-                              <a href="#" class="h4 d-inline-block mb-4">UI/UX</a>
-                              <p class="mb-4" style="text-align: justify;">Our UI/UX design process blends creativity with functionality, ensuring that every interaction is seamless and delightful. Let’s transform your vision into a captivating user journey that keeps your audience coming back for more!
-                              </p>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+                  <div class="service-item" style="height: 100%;">
+                    <div class="service-img">
+                      <img src="img/DigitalMarketing.png" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
+                    </div>
+                    <div class="rounded-bottom p-4" style="height: 100%;">
+                      <a href="#" class="h4 d-inline-block mb-4">Digital Marketing</a>
+                      <p class="mb-4" style="text-align: justify;">From targeted campaigns to compelling content creation, our innovative approach ensures your business stands out in a crowded marketplace. Let’s amplify your online presence and drive measurable results together!
+                      </p>
                               <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
-                          </div>
-                      </div>
+                    </div>
                   </div>
-                  <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
-                      <div class="service-item" style="height: 100%;">
-                          <div class="service-img">
-                              <img src="img/DigitalMarketing.png" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
-                          </div>
-                          <div class="rounded-bottom p-4" style="height: 100%;">
-                              <a href="#" class="h4 d-inline-block mb-4">Digital Marketing</a>
-                              <p class="mb-4" style="text-align: justify;">From targeted campaigns to compelling content creation, our innovative approach ensures your business stands out in a crowded marketplace. Let’s amplify your online presence and drive measurable results together!
-                              </p>
+                </div>
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                  <div class="service-item" style="height: 100%;">
+                    <div class="service-img">
+                      <img src="img/PC.jpg" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
+                    </div>
+                    <div class="rounded-bottom p-4" style="height: 100%;">
+                      <a href="#" class="h4 d-inline-block mb-4">PC Building</a>
+                      <p class="mb-4" style="text-align: justify;">PC building service customizes computer systems to meet clients' specific performance needs, ensuring reliability and efficiency. This includes selecting, assembling, and testing components for optimal functionality in gaming, professional, or enterprise environments.
+                      </p>
                               <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
-                          </div>
-                      </div>
+                    </div>
                   </div>
-                  <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
-                      <div class="service-item" style="height: 100%;">
-                          <div class="service-img">
-                              <img src="img/PC.jpg" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
-                          </div>
-                          <div class="rounded-bottom p-4" style="height: 100%;">
-                              <a href="#" class="h4 d-inline-block mb-4">PC Building</a>
-                              <p class="mb-4" style="text-align: justify;">PC building service customizes computer systems to meet clients' specific performance needs, ensuring reliability and efficiency. This includes selecting, assembling, and testing components for optimal functionality in gaming, professional, or enterprise environments.
-                              </p>
-                              <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
-                          </div>
-                      </div>
-                  </div>
+                </div>
               </div>
+            </div>
           </div>
+        </div>
       </div>
       
       <!-- Services End -->
