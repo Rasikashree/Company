@@ -100,7 +100,7 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
                         <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="#about" class="nav-item nav-link">About</a>
+                        <a href="#about-container" class="nav-item nav-link">About</a>
                         <a href="#service" class="nav-item nav-link">Services</a>
                         <a href="career.html" class="nav-item nav-link">Career</a>
                         <a href="team.html" class="nav-item nav-link">Team</a>
@@ -131,7 +131,8 @@
                 <div class="overlay">
                     <div class="container">
                         <div class="text-content">
-                            <h2 style="font-size: 45px;">Success is not about avoiding failures<br>but about embracing them as opportunities for growth.</h2>
+                            <h2 style="color: #00CCCC;font-size: 65px;">Tailoring Solutions, Crafting Your Success</h2>
+                            <h4 style="font-size: 40px;color: #fff;">Success is not about avoiding failures<br>but about embracing them as opportunities for growth.</h4>
                             <button onclick="toggleFormPopup()" style="font-size: 20px; padding: 5px 10px; border-radius: 5px; background-color: #00CCCC; color: white; border: none;">Explore</button>
                         </div>
                     </div>
@@ -203,27 +204,65 @@
         <h2>Welcome! Let's Explore</h2>
         <p>Register your business and find the ideal solution for your problems, effortlessly.</p>
     </div>
-    <form method="POST" class="welcome-form" action="/submit_form">
-        <div class="eform-group">
-            <input type="text" class="eform-control" placeholder="First Name" name="first_name" required />
+    <form id="registrationForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="8d8ebc3f-89ff-44a3-b3b2-5c72e45f7c19" />
+        <input type="hidden" name="branding" value="false" />
+
+        <div class="form-group">
+          <input type="text" id="name" name="name" placeholder=" " required>
+          <label for="name">Name</label>
         </div>
-        <div class="eform-group">
-            <input type="text" class="eform-control" placeholder="Last Name" name="last_name" required />
+
+        <div class="form-group">
+          <input type="email" id="email" name="email" placeholder=" " required>
+          <label for="email">Email</label>
         </div>
-        <div class="eform-group">
-            <input type="tel" class="eform-control" id="phone_number" name="phone_number" placeholder="Phone Number" pattern="[0-9]{10}" maxlength="10" required />
+
+        <div class="form-group">
+          <input type="tel" id="phone" name="phone" placeholder=" " pattern="[0-9]{10}" required>
+          <label for="phone">Phone</label>
         </div>
-        <div class="eform-group">
-            <input type="email" class="eform-control" placeholder="Email" name="email" required />
+
+        <div class="form-group">
+          <textarea id="message" name="message" rows="4" placeholder=" " required></textarea>
+          <label for="message">Message</label>
         </div>
-        <center><button type="submit" class="btn" style="background-color: #00CCCC; color: white;">Submit</button></center>
+        <div class="privacy-policy">
+          <input type="checkbox" id="privacyPolicy" required>
+          <label for="privacyPolicy">I agree to the <a href="privacypolicy.html" target="_blank">Privacy Policy</a>.</label>
+        </div>
         <br/>
-        <div style="text-align: center;">
-            <span>By proceeding you agree to the
-                <a href="terms.html">Terms</a> and <a href="privacypolicy.html">Privacy Policy</a>.
-            </span>
-        </div>
-    </form>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+
+      <div id="formSuccessMessage" class="success-message">
+        <p>Registration successful! Thank you! We will get back to you soon!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById("registrationForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    const formData = new FormData(this);
+    
+    fetch(this.action, {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            document.getElementById("registrationForm").style.display = "none"; // Hide the form
+            document.getElementById("formSuccessMessage").style.display = "block"; // Show success message
+        } else {
+            alert("There was an error submitting the form. Please try again.");
+        }
+    })
+    .catch(error => console.error("Error:", error));
+  });
+</script>
 </div>
 
 <!-- JavaScript for Toggle -->
@@ -317,177 +356,543 @@
         background-color: #0056b3;
     } */
 </style>
+</div>
+</div>
         <!-- Navbar & Hero End -->
          
 
         <!-- Abvout Start -->
-        <div id="about" class="container-fluid about py-5">
-            <div class="container py-5">
-                <div class="row g-5 align-items-center">
-                    <div class="col-xl-7 wow fadeInLeft" data-wow-delay="0.2s">
-                        <div>
-                            <h4 class="text-primary">About Us</h4>
-                            <h1 class="display-5 mb-4">Meet our company</h1>
-                            <p class="mb-4" style="text-align: justify;">Welcome to SkySphere Technologies Private Limited, where innovation meets excellence. Founded with a vision to push the boundaries of technology, SkySphere Technologies specializes in creating cutting-edge solutions that empower businesses and individuals alike. Our expertise spans a wide array of fields, including software development, artificial intelligence, machine learning, and IoT, tailored to meet the unique needs of diverse industries.
-                            </p>
-                            <p class="mb-4" style="text-align: justify;">Our core values of integrity, quality, and continuous improvement are at the heart of everything we do. We believe in fostering long-term partnerships and delivering exceptional value through robust, efficient, and reliable products. At SkySphere Technologies, we are not just building technology – we’re shaping the future.
-                            </p>
-                            <p class="mb-4" style="text-align: justify;">
-                                Join us on this journey as we continue to push the frontiers of technology and create solutions that make a difference.
-                            </p>
-                            <div class="row g-4">
-                                <!-- <div class="col-md-6 col-lg-6 col-xl-6">
-                                    <div class="d-flex">
-                                        <div><i class="fas fa-lightbulb fa-3x text-primary"></i></div>
-                                        <div class="ms-4">
-                                            <h4>Technical Consulting</h4>
-                                            <p>Expert consulting to drive innovation and optimize solutions.</p>
-                                        </div>
-                                    </div>
-                                </div> -->
-                                <!-- <div class="col-md-6 col-lg-6 col-xl-6">
-                                    <div class="d-flex">
-                                        <div><i class="bi bi-bookmark-heart-fill fa-3x text-primary"></i></div>
-                                        <div class="ms-4">
-                                            <h4>Year Of Expertise</h4>
-                                            <p>2+</p>
-                                        </div>
-                                    </div>
-                                </div> -->
-                                <!-- <div class="col-sm-6">
-                                    <a href="#" class="btn btn-primary rounded-pill py-3 px-5 flex-shrink-0">Discover Now</a>
-                                </div> -->
-                                <!-- <div class="col-sm-6">
-                                    <div class="d-flex">
-                                        <i class="fas fa-phone-alt fa-2x text-primary me-4"></i>
-                                        <div>
-                                            <h4>Call Us</h4>
-                                            <p class="mb-0 fs-5" style="letter-spacing: 1px;">+91 9442290033</p>
-                                        </div>
-                                    </div>
-                                </div> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-5 wow fadeInRight" data-wow-delay="0.2s">
-                        <div class="bg-primary rounded position-relative overflow-hidden">
-                            <!-- <img src="img/about-1.jpg" class="img-fluid rounded w-100" alt=""> -->
-                            
-                            <!-- <div class="" style="position: absolute; top: -15px; right: -15px;">
-                                <img src="img/about-3.png" class="img-fluid" style="width: 150px; height: 150px; opacity: 0.7;" alt="">
-                            </div>
-                            <div class="" style="position: absolute; top: -20px; left: 10px; transform: rotate(90deg);">
-                                <img src="img/about-4.png" class="img-fluid" style="width: 100px; height: 150px; opacity: 0.9;" alt="">
-                            </div>
-                            <div class="rounded-bottom"> -->
-                                <img src="img/about-2.jpg" class="img-fluid rounded-bottom w-100" alt="">
-                            <!-- </div> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- About End -->
-
-        <!-- Services Start -->
-        <div id="service" class="container-fluid service pb-5" style="background-image: url('img/bg.png');">
-            <div class="container pb-5">
-                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <h4 class="text-primary">Our Services</h4>
-                    <h1 class="display-5 mb-4" style="color: white;">We Services provided best offer</h1>
-                    <p class="mb-0" style="color: white;">
-                        Fueling your vision with custom software, secure cloud solutions, and unbeatable cybersecurity—our IT
-                        services transform challenges into growth, innovation, and success. Let’s build the future together, one
-                        solution at a time.
-                    </p>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="service-item" style="height: 100%;">
-                            <div class="service-img">
-                                <img src="img/Web Development.jpg" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
-                            </div>
-                            <div class="rounded-bottom p-4" style="height: 100%;">
-                                <a href="#" class="h4 d-inline-block mb-4">Web Development</a>
-                                <p class="mb-4" style="text-align: justify;">
-                                    We craft stunning, immersive websites that breathe life into your brand and captivate your
-                                    audience. Merging artistry with technology, our web development services create unforgettable
-                                    digital experiences that resonate and inspire action.
-                                </p>
-                                <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="service-item" style="height: 100%;">
-                            <div class="service-img">
-                                <img src="img/App Development.png" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
-                            </div>
-                            <div class="rounded-bottom p-4" style="height: 100%;">
-                                <a href="#" class="h4 d-inline-block mb-4">App Development</a>
-                                <p class="mb-4" style="text-align: justify;">Our agile development process ensures flexibility and timely delivery, while our cross-platform solutions maximize your reach. Let's create future-proof apps that inspire engagement and drive success.
-                                </p>
-                                <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="service-item" style="height: 100%;">
-                            <div class="service-img">
-                                <img src="img/AI.jpg" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
-                            </div>
-                            <div class="rounded-bottom p-4" style="height: 100%;">
-                                <a href="#" class="h4 d-inline-block mb-4">AI</a>
-                                <p class="mb-4" style="text-align: justify;">Our AI-driven applications enhance decision-making, automate processes, and elevate user experiences, empowering your business to stay ahead in a rapidly evolving landscape. Let’s unlock the potential of AI together and redefine the future of your organization.
-                                </p>
-                                <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="service-item" style="height: 100%;">
-                            <div class="service-img">
-                                <img src="img/UIUX.jpg" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
-                            </div>
-                            <div class="rounded-bottom p-4" style="height: 100%;">
-                                <a href="#" class="h4 d-inline-block mb-4">UI/UX</a>
-                                <p class="mb-4" style="text-align: justify;">Our UI/UX design process blends creativity with functionality, ensuring that every interaction is seamless and delightful. Let’s transform your vision into a captivating user journey that keeps your audience coming back for more!
-                                </p>
-                                <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="service-item" style="height: 100%;">
-                            <div class="service-img">
-                                <img src="img/DigitalMarketing.png" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
-                            </div>
-                            <div class="rounded-bottom p-4" style="height: 100%;">
-                                <a href="#" class="h4 d-inline-block mb-4">Digital Marketing</a>
-                                <p class="mb-4" style="text-align: justify;">From targeted campaigns to compelling content creation, our innovative approach ensures your business stands out in a crowded marketplace. Let’s amplify your online presence and drive measurable results together!
-                                </p>
-                                <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="service-item" style="height: 100%;">
-                            <div class="service-img">
-                                <img src="img/PC.jpg" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
-                            </div>
-                            <div class="rounded-bottom p-4" style="height: 100%;">
-                                <a href="#" class="h4 d-inline-block mb-4">PC Building</a>
-                                <p class="mb-4" style="text-align: justify;">PC building service customizes computer systems to meet clients' specific performance needs, ensuring reliability and efficiency. This includes selecting, assembling, and testing components for optimal functionality in gaming, professional, or enterprise environments.
-                                </p>
-                                <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        
+        <!-- Add AOS CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+        <div class="about-container" data-aos="fade-up" data-aos-duration="1000">
+          <div class="text-container">
+              <h2 class="heading" data-aos="fade-right" data-aos-duration="1000" style="font-size: x-large;">About Us</h2>
+              <p class="sub-heading" data-aos="fade-left" data-aos-duration="1000">
+                  We are dedicated to delivering innovative solutions with excellence, empowering our clients to achieve success and make a lasting impact.
+              </p>
+              <div class="card-grid">
+                  <div class="card" data-aos="flip-left" data-aos-duration="1000">
+                      <h3 class="card-heading">Innovation</h3>
+                      <p class="card-text">
+                          We continuously push boundaries to create cutting-edge solutions. Our forward-thinking approach drives impactful change for our clients.
+                      </p>
+                  </div>
+                  <div class="card" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="200">
+                      <h3 class="card-heading">Excellence</h3>
+                      <p class="card-text">
+                          Excellence is at the heart of everything we do. We strive to exceed expectations and set new standards in quality and performance.
+                      </p>
+                  </div>
+                  <div class="card" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="400">
+                      <h3 class="card-heading">Empowerment</h3>
+                      <p class="card-text">
+                          We empower our clients with tools and insights that lead to growth and confidence. Our solutions are designed to inspire and enable success.
+                      </p>
+                  </div>
+                  <div class="card" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="600">
+                      <h3 class="card-heading">Impact</h3>
+                      <p class="card-text">
+                          We aim to make a meaningful difference through every project. Our focus is on delivering results that last and create real-world value.
+                      </p>
+                  </div>
+              </div>
+          </div>
+          <div class="img-container">
+              <img class="blue-dots" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/aw3.svg" data-aos="zoom-in" data-aos-duration="1000">
+              <img class="main-img" src="img/about-2.jpg" data-aos="fade-left" data-aos-duration="1000">
+          </div>
+          <style>
+            html {
+                scroll-behavior: smooth;
+            }
+            * {
+                font-family: Nunito, sans-serif;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            .about-container {
+                display: flex;
+                gap: 2rem;
+                align-items: stretch;
+                padding: 3rem;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            
+            .img-container {
+                position: relative;
+                perspective: 1000px;
+                transform-style: preserve-3d;
+                transition: transform 1s ease, box-shadow 1s ease;
+                flex: 1;
+                animation: flyInRight 1.5s ease-out;
+            }
+            
+            .img-container:hover {
+                transform: rotateY(0deg) scale(1.05);
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            }
+            
+            .main-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+                animation: fadeIn 1.5s ease-in-out;
+            }
+            
+            .blue-dots {
+                position: absolute;
+                top: 10%;
+                right: 10%;
+                width: 80%;
+                height: auto;
+                animation: float 3s infinite alternate;
+                z-index: -1;
+            }
+            
+            .text-container {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+                flex: 1;
+                animation: flyInLeft 1.5s ease-out;
+            }
+            
+            .heading {
+                font-size: 2rem;
+                font-weight: 700;
+                opacity: 0;
+                animation: fadeIn 1s ease forwards;
+                animation-delay: 0.5s;
+            }
+            
+            .sub-heading {
+                font-size: 1.1rem;
+                color: #555;
+                opacity: 0;
+                animation: fadeIn 1s ease forwards;
+                animation-delay: 0.7s;
+            }
+            
+            .card-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+            
+            .card {
+                padding: 1rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                background-color: #fff;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                opacity: 0;
+                animation: fadeInUp 1s ease forwards;
+            }
+            
+            .card:nth-child(1) {
+                animation-delay: 1s;
+            }
+            
+            .card:nth-child(2) {
+                animation-delay: 1.2s;
+            }
+            
+            .card:nth-child(3) {
+                animation-delay: 1.4s;
+            }
+            
+            .card:nth-child(4) {
+                animation-delay: 1.6s;
+            }
+            
+            .card:hover {
+                transform: translateY(-10px) scale(1.05);
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            }
+            
+            .card-heading {
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+            }
+            
+            .card-text {
+                color: #666;
+                font-size: 0.95rem;
+                line-height: 1.4;
+            }
+            
+            @keyframes flyInLeft {
+                from {
+                    opacity: 0;
+                    transform: translateX(-100px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            
+            @keyframes flyInRight {
+                from {
+                    opacity: 0;
+                    transform: translateX(100px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            @keyframes float {
+                from { transform: translateY(0); }
+                to { transform: translateY(-15px); }
+            }
+            
+            @media (max-width: 768px) {
+                .about-container {
+                    flex-direction: column;
+                    gap: 1.5rem;
+                }
+            
+                .img-container {
+                    width: 100%;
+                    height: 300px;
+                }
+            }
+        </style>
         </div>
         
-        <!-- Services End -->
+    
+      
+      
+      <!-- Add AOS JS -->
+      <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+      
+      <!-- Initialize AOS -->
+      <script>
+          AOS.init();
+      </script>
+      
+      <style>
+          .card {
+              background: #fff;
+              padding: 20px;
+              border-radius: 10px;
+              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+              transition: transform 0.5s ease, box-shadow 0.5s ease;
+          }
+      
+          /* Glow effect on hover */
+          .card:hover {
+              transform: translateY(-10px);
+              box-shadow: 0 0 20px rgba(0, 204, 204, 0.7), 0 0 30px rgba(0, 204, 204, 0.5);
+          }
+      </style>
+      </div>
+      
+        <!-- About End -->
+
+         
+         <!-- Services Start -->
+        <div id="service" class="container-fluid service pb-5" style="background-image: url('img/bg.jpg');">
+          <div class="container pb-5">
+              <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                  <h4 class="text-primary" style="font-size: x-large;">Our Services</h4>
+                  <h1 class="display-5 mb-4" style="color: white;">We Services provided best offer</h1>
+                  <p class="mb-0" style="color: white;">
+                      Fueling your vision with custom software, secure cloud solutions, and unbeatable cybersecurity—our IT
+                      services transform challenges into growth, innovation, and success. Let’s build the future together, one
+                      solution at a time.
+                  </p>
+              </div>
+              <div class="row g-4">
+                  <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                      <div class="service-item" style="height: 100%;">
+                          <div class="service-img">
+                              <img src="img/Web Development.jpg" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
+                          </div>
+                          <div class="rounded-bottom p-4" style="height: 100%;">
+                              <a href="#" class="h4 d-inline-block mb-4">Web Development</a>
+                              <p class="mb-4" style="text-align: justify;">
+                                  We craft stunning, immersive websites that breathe life into your brand and captivate your
+                                  audience. Merging artistry with technology, our web development services create unforgettable
+                                  digital experiences that resonate and inspire action.
+                              </p>
+                              <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+                      <div class="service-item" style="height: 100%;">
+                          <div class="service-img">
+                              <img src="img/App Development.png" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
+                          </div>
+                          <div class="rounded-bottom p-4" style="height: 100%;">
+                              <a href="#" class="h4 d-inline-block mb-4">App Development</a>
+                              <p class="mb-4" style="text-align: justify;">Our agile development process ensures flexibility and timely delivery, while our cross-platform solutions maximize your reach. Let's create future-proof apps that inspire engagement and drive success.
+                              </p>
+                              <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                      <div class="service-item" style="height: 100%;">
+                          <div class="service-img">
+                              <img src="img/AI.jpg" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
+                          </div>
+                          <div class="rounded-bottom p-4" style="height: 100%;">
+                              <a href="#" class="h4 d-inline-block mb-4">AI</a>
+                              <p class="mb-4" style="text-align: justify;">Our AI-driven applications enhance decision-making, automate processes, and elevate user experiences, empowering your business to stay ahead in a rapidly evolving landscape. Let’s unlock the potential of AI together and redefine the future of your organization.
+                              </p>
+                              <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                      <div class="service-item" style="height: 100%;">
+                          <div class="service-img">
+                              <img src="img/UIUX.jpg" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
+                          </div>
+                          <div class="rounded-bottom p-4" style="height: 100%;">
+                              <a href="#" class="h4 d-inline-block mb-4">UI/UX</a>
+                              <p class="mb-4" style="text-align: justify;">Our UI/UX design process blends creativity with functionality, ensuring that every interaction is seamless and delightful. Let’s transform your vision into a captivating user journey that keeps your audience coming back for more!
+                              </p>
+                              <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+                      <div class="service-item" style="height: 100%;">
+                          <div class="service-img">
+                              <img src="img/DigitalMarketing.png" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
+                          </div>
+                          <div class="rounded-bottom p-4" style="height: 100%;">
+                              <a href="#" class="h4 d-inline-block mb-4">Digital Marketing</a>
+                              <p class="mb-4" style="text-align: justify;">From targeted campaigns to compelling content creation, our innovative approach ensures your business stands out in a crowded marketplace. Let’s amplify your online presence and drive measurable results together!
+                              </p>
+                              <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                      <div class="service-item" style="height: 100%;">
+                          <div class="service-img">
+                              <img src="img/PC.jpg" class="img-fluid rounded-top w-100" alt="Image" style="height: 300px;">
+                          </div>
+                          <div class="rounded-bottom p-4" style="height: 100%;">
+                              <a href="#" class="h4 d-inline-block mb-4">PC Building</a>
+                              <p class="mb-4" style="text-align: justify;">PC building service customizes computer systems to meet clients' specific performance needs, ensuring reliability and efficiency. This includes selecting, assembling, and testing components for optimal functionality in gaming, professional, or enterprise environments.
+                              </p>
+                              <!-- <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a> -->
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Services End -->
+        
+         
+
+        <!-- why choose us  -->
+        <section id="why_us">
+          <div class="container-fluid feature pb-5">
+            <div class="container pb-5">
+              <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h1 class="display-5 mb-4">Why Choose Us?</h1>
+                <p class="mb-0" style="text-align: center;">
+                  Choose us for our commitment to excellence, innovative solutions, and a client-first approach that ensures your success.
+                </p>
+              </div>
+        
+              <div class="row g-4">
+                <!-- Flip Card 1 -->
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front" style="background-image: linear-gradient(90deg, #313552, #219F94);;">
+                        <span class="icon feature_box_col_one" style="background-color: #001f3f;"><i class="fa fa-globe"></i></span>
+                        <h4 class="feature-title">Modern Design</h4>
+                      </div>
+                      <div class="flip-card-back">
+                        <p>We use the latest technology to meet modern demands and create high-quality, reliable designs.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+                <!-- Flip Card 2 -->
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front" style="background-image: linear-gradient(90deg, #313552, #219F94);;">
+                        <span class="icon feature_box_col_two" style="background-color: #001f3f;"><i class="fa fa-anchor"></i></span>
+                        <h4 class="feature-title">Creative Design</h4>
+                      </div>
+                      <div class="flip-card-back">
+                        <p>Combining creativity and client insights to produce designs that stand out.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        
+                <!-- Flip Card 3 -->
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front" style="background-image: linear-gradient(90deg, #313552, #219F94);">
+                        <span class="icon feature_box_col_three" style="background-color: #001f3f;"><i class="fa fa-hourglass-half"></i></span>
+                        <h4 class="feature-title">24 x 7 User Support</h4>
+                      </div>
+                      <div class="flip-card-back">
+                        <p>We’re available anytime to assist with your needs and ensure satisfaction.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                 <!-- Flip Card 4 -->
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front" style="background-image: linear-gradient(90deg, #313552, #219F94);">
+                        <span class="icon feature_box_col_four" style="background-color: #001f3f;"><i class="fa fa-database"></i></span>
+                        <h6>Business Growth</h6>
+                      </div>
+                      <div class="flip-card-back">
+                        <p>Everyone wants to live on top of the mountain, but all the happiness and growth occurs while you're climbing it.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                 <!-- Flip Card 5 -->
+                 <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front" style="background-image: linear-gradient(90deg, #313552, #219F94);">
+                        <span class="icon feature_box_col_five" style="background-color: #001f3f;"><i class="fa fa-upload"></i></span>
+                        <h6>Market Strategy</h6>
+                      </div>
+                      <div class="flip-card-back">
+                        <p>Holding back technology to preserve broken business models is like allowing blacksmiths to veto the internal combustion engine to protect their horseshoes.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Flip Card 6 -->
+                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front" style="background-image: linear-gradient(90deg, #313552, #219F94);">
+                        <span class="icon feature_box_col_six" style="background-color: #001f3f;"><i class="fa fa-camera"></i></span>
+                        <h6>Affordable Cost</h6>
+                      </div>
+                      <div class="flip-card-back">
+                        <p>Love is a special word, and I use it only when I mean it. You say the word too much, and it becomes cheap.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Add more flip cards here as needed -->
+              </div>
+
+            </div>
+          </div>
+        
+          <style>
+            /* Flip Card Container */
+            .flip-card {
+              background-color: transparent;
+              width: 100%;
+              height: 300px;
+              perspective: 1000px;
+              border-radius: 10px;
+              overflow: hidden;
+              box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+              transition: transform 0.5s ease;
+            }
+        
+            /* Flip Card Inner Wrapper */
+            .flip-card-inner {
+              position: relative;
+              width: 100%;
+              height: 100%;
+              text-align: center;
+              transition: transform 0.6s;
+              transform-style: preserve-3d;
+            }
+        
+            /* Flip effect on hover */
+            .flip-card:hover .flip-card-inner {
+              transform: rotateY(180deg);
+            }
+        
+            /* Front and Back of Card */
+            .flip-card-front, .flip-card-back {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              backface-visibility: hidden;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-weight: bold;
+              color: #fff;
+              background: #2f56a5;
+            }
+        
+            /* Back of Card */
+            .flip-card-back {
+              background: radial-gradient(circle, #00CCCC, #001f3f, #000);
+              color: #fff;
+              transform: rotateY(180deg);
+              padding: 20px;
+              font-size: 1em;
+              text-align: center;
+            }
+        
+            /* Feature Icon Styling */
+            .icon {
+              font-size: 40px;
+              margin-bottom: 25px;
+              color: #fff;
+              width: 90px;
+              height: 90px;
+              line-height: 96px;
+              border-radius: 50px;
+              background: #2f56a5;
+            }
+        
+            .feature-title {
+              font-size: 1.2em;
+              padding-top: 10px;
+            }
+          </style>
+        </section>
+        
+         <!-- end of why choose us  -->
 
         
         <!-- Features Start -->
@@ -729,89 +1134,132 @@
         <!-- Blog End -->
 
 
-        <!-- FAQs Start -->
-        <div class="container-fluid faq-section pb-5">
-            <div class="container pb-5 overflow-hidden">
-                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <h4 class="text-primary">FAQs</h4>
-                    <h1 class="display-5 mb-4" style="color: black">Frequently Asked Questions</h1>
-                    <p class="mb-0" style="color: black;">Here are some of the most common inquiries we receive about our services, timelines, and processes. If you don’t find what you’re looking for, feel free to reach out—we’re here to help!"
-                    </p>
-                </div>
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.2s">
-                        <div class="accordion accordion-flush bg-light rounded p-5" id="accordionFlushSection">
-                            <div class="accordion-item rounded-top">
-                                <h2 class="accordion-header" id="flush-headingOne">
-                                    <button class="accordion-button collapsed rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                        How is your development process different from other IT companies?
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushSection">
-                                    <div class="accordion-body">We use a collaborative, agile approach with frequent check-ins and feedback sessions, ensuring the final product is exactly what you envisioned. This differs from a more rigid, hands-off process common with many other providers.</div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                        How do you ensure our website is secure?
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushSection">
-                                    <div class="accordion-body">We incorporate SSL, firewalls, and regular security audits to protect against potential threats. We also follow best practices in coding to keep your site secure from the ground up.</div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingThree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                        Do you develop both iOS and Android apps?
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushSection">
-                                    <div class="accordion-body"> Yes, we offer cross-platform development for iOS and Android to ensure your app reaches the widest audience. We also provide native app solutions if you prefer a platform-specific approach.</div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingFour">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-                                        How can AI help us improve customer service?
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushSection">
-                                    <div class="accordion-body">AI can improve customer service by powering chatbots for instant responses, analyzing feedback for customer insights,and automating routine tasks, freeing your team to focus on more complex inquiries.</div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="flush-headingFive">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
-                                        Can you redesign our existing website or app for better user experience?
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushSection">
-                                    <div class="accordion-body">Absolutely! We offer UI/UX redesign services to improve usability, enhance visual appeal, and ensure your digital presence aligns with user expectations and modern design standards.</div>
-                                </div>
-                            </div>
-                            <div class="accordion-item rounded-bottom">
-                                <h2 class="accordion-header" id="flush-headingSix">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
-                                        How long does it take to see results from digital marketing?
-                                    </button>
-                                </h2>
-                                <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushSection">
-                                    <div class="accordion-body">Results can vary depending on your goals and channels. While some strategies (like paid ads) may show results in weeks, SEO and content marketing may take a few months for maximum impact.</div>
-                                </div>
-                            </div>
+       <!-- Testimonial Start -->
+       <div class="container-fluid testimonial pb-5" style="background-image: url('img/bg.jpg');">
+        <div class="container pb-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h4 class="text-primary" style="font-size: x-large;">Testimonial</h4>
+                <h1 class="display-5 mb-4" style="color: white;">Our Clients Riviews</h1>
+                <p class="mb-0" style="color: white;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint dolorem autem obcaecati, ipsam mollitia hic.
+                </p>
+            </div>
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
+                <div class="testimonial-item">
+                    <div class="testimonial-quote-left">
+                        <i class="fas fa-quote-left fa-2x"></i>
+                    </div>
+                    <div class="testimonial-img">
+                        <img src="img/deva.jpg" class="img-fluid" alt="Image">
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Exceptional customer service – attentive, responsive, and committed to ensuring satisfaction every step of the way.
+                        </p>
+                    </div>
+                    <div class="testimonial-title">
+                        <div>
+                            <h4 class="mb-0">DEVADHARSHINI M</h4>
+                            <p class="mb-0">Project Manager</p>
+                        </div>
+                        <div class="d-flex text-primary">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
                     </div>
-                    <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.2s">
-                        <div class="bg-primary rounded">
-                            <img src="img/about-1.jpg" class="img-fluid w-100" alt="">
+                    <div class="testimonial-quote-right">
+                        <i class="fas fa-quote-right fa-2x"></i>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-quote-left">
+                        <i class="fas fa-quote-left fa-2x"></i>
+                    </div>
+                    <div class="testimonial-img">
+                        <img src="img/sai.jpg" class="img-fluid" alt="Image">
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">High-quality products/services that consistently exceed expectations, demonstrating a commitment to excellence.
+                        </p>
+                    </div>
+                    <div class="testimonial-title">
+                        <div>
+                            <h4 class="mb-0">SAIMOHANA S</h4>
+                            <p class="mb-0">Business Analyst</p>
                         </div>
+                        <div class="d-flex text-primary">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote-right">
+                        <i class="fas fa-quote-right fa-2x"></i>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-quote-left">
+                        <i class="fas fa-quote-left fa-2x"></i>
+                    </div>
+                    <div class="testimonial-img">
+                        <img src="img/gayu.jpg" class="img-fluid" alt="Image">
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Innovative solutions that add value and address industry challenges, making them a valuable partner.
+                        </p>
+                    </div>
+                    <div class="testimonial-title">
+                        <div>
+                            <h4 class="mb-0">GAYASHREE</h4>
+                            <p class="mb-0">Developer</p>
+                        </div>
+                        <div class="d-flex text-primary">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote-right">
+                        <i class="fas fa-quote-right fa-2x"></i>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-quote-left">
+                        <i class="fas fa-quote-left fa-2x"></i>
+                    </div>
+                    <div class="testimonial-img">
+                        <img src="img/ashmi.jpg" class="img-fluid" alt="Image">
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Reliable and trustworthy – always delivering on time with transparency, providing peace of mind and confidence.
+                        </p>
+                    </div>
+                    <div class="testimonial-title">
+                        <div>
+                            <h4 class="mb-0">ASHMITHA B</h4>
+                            <p class="mb-0">Freelancer</p>
+                        </div>
+                        <div class="d-flex text-primary">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote-right">
+                        <i class="fas fa-quote-right fa-2x"></i>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- FAQs End -->
+    </div>
+    <!-- Testimonial End -->
 
 
         <!-- Team Start -->
@@ -914,132 +1362,89 @@
         </div> -->
         <!-- Team End -->
 
-        <!-- Testimonial Start -->
-        <div class="container-fluid testimonial pb-5">
-            <div class="container pb-5">
-                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <h4 class="text-primary">Testimonial</h4>
-                    <h1 class="display-5 mb-4">Our Clients Riviews</h1>
-                    <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur adipisci facilis cupiditate recusandae aperiam temporibus corporis itaque quis facere, numquam, ad culpa deserunt sint dolorem autem obcaecati, ipsam mollitia hic.
-                    </p>
-                </div>
-                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="testimonial-item">
-                        <div class="testimonial-quote-left">
-                            <i class="fas fa-quote-left fa-2x"></i>
-                        </div>
-                        <div class="testimonial-img">
-                            <img src="img/deva.jpg" class="img-fluid" alt="Image">
-                        </div>
-                        <div class="testimonial-text">
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum accusamus.
-                            </p>
-                        </div>
-                        <div class="testimonial-title">
-                            <div>
-                                <h4 class="mb-0">DEVADHARSHINI M</h4>
-                                <p class="mb-0">Profession</p>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-quote-right">
-                            <i class="fas fa-quote-right fa-2x"></i>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <div class="testimonial-quote-left">
-                            <i class="fas fa-quote-left fa-2x"></i>
-                        </div>
-                        <div class="testimonial-img">
-                            <img src="img/sai.jpg" class="img-fluid" alt="Image">
-                        </div>
-                        <div class="testimonial-text">
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum accusamus.
-                            </p>
-                        </div>
-                        <div class="testimonial-title">
-                            <div>
-                                <h4 class="mb-0">SAIMOHANA S</h4>
-                                <p class="mb-0">Profession</p>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-quote-right">
-                            <i class="fas fa-quote-right fa-2x"></i>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <div class="testimonial-quote-left">
-                            <i class="fas fa-quote-left fa-2x"></i>
-                        </div>
-                        <div class="testimonial-img">
-                            <img src="img/gayu.jpg" class="img-fluid" alt="Image">
-                        </div>
-                        <div class="testimonial-text">
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum accusamus.
-                            </p>
-                        </div>
-                        <div class="testimonial-title">
-                            <div>
-                                <h4 class="mb-0">GAYASHREE</h4>
-                                <p class="mb-0">Profession</p>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-quote-right">
-                            <i class="fas fa-quote-right fa-2x"></i>
-                        </div>
-                    </div>
-                    <div class="testimonial-item">
-                        <div class="testimonial-quote-left">
-                            <i class="fas fa-quote-left fa-2x"></i>
-                        </div>
-                        <div class="testimonial-img">
-                            <img src="img/ashmi.jpg" class="img-fluid" alt="Image">
-                        </div>
-                        <div class="testimonial-text">
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum accusamus.
-                            </p>
-                        </div>
-                        <div class="testimonial-title">
-                            <div>
-                                <h4 class="mb-0">ASHMITHA B</h4>
-                                <p class="mb-0">Profession</p>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-quote-right">
-                            <i class="fas fa-quote-right fa-2x"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Testimonial End -->
+        <!-- FAQs Start -->
+        <div class="container-fluid faq-section pb-5">
+          <div class="container pb-5 overflow-hidden">
+              <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                  <h4 class="text-primary">FAQs</h4>
+                  <h1 class="display-5 mb-4" style="color: black">Frequently Asked Questions</h1>
+                  <p class="mb-0" style="color: black;">Here are some of the most common inquiries we receive about our services, timelines, and processes. If you don’t find what you’re looking for, feel free to reach out—we’re here to help!"
+                  </p>
+              </div>
+              <div class="row g-5 align-items-center">
+                  <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.2s">
+                      <div class="accordion accordion-flush bg-light rounded p-5" id="accordionFlushSection">
+                          <div class="accordion-item rounded-top">
+                              <h2 class="accordion-header" id="flush-headingOne">
+                                  <button class="accordion-button collapsed rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                      How is your development process different from other IT companies?
+                                  </button>
+                              </h2>
+                              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushSection">
+                                  <div class="accordion-body">We use a collaborative, agile approach with frequent check-ins and feedback sessions, ensuring the final product is exactly what you envisioned. This differs from a more rigid, hands-off process common with many other providers.</div>
+                              </div>
+                          </div>
+                          <div class="accordion-item">
+                              <h2 class="accordion-header" id="flush-headingTwo">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                      How do you ensure our website is secure?
+                                  </button>
+                              </h2>
+                              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushSection">
+                                  <div class="accordion-body">We incorporate SSL, firewalls, and regular security audits to protect against potential threats. We also follow best practices in coding to keep your site secure from the ground up.</div>
+                              </div>
+                          </div>
+                          <div class="accordion-item">
+                              <h2 class="accordion-header" id="flush-headingThree">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                      Do you develop both iOS and Android apps?
+                                  </button>
+                              </h2>
+                              <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushSection">
+                                  <div class="accordion-body"> Yes, we offer cross-platform development for iOS and Android to ensure your app reaches the widest audience. We also provide native app solutions if you prefer a platform-specific approach.</div>
+                              </div>
+                          </div>
+                          <div class="accordion-item">
+                              <h2 class="accordion-header" id="flush-headingFour">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                                      How can AI help us improve customer service?
+                                  </button>
+                              </h2>
+                              <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushSection">
+                                  <div class="accordion-body">AI can improve customer service by powering chatbots for instant responses, analyzing feedback for customer insights,and automating routine tasks, freeing your team to focus on more complex inquiries.</div>
+                              </div>
+                          </div>
+                          <div class="accordion-item">
+                              <h2 class="accordion-header" id="flush-headingFive">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                                      Can you redesign our existing website or app for better user experience?
+                                  </button>
+                              </h2>
+                              <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushSection">
+                                  <div class="accordion-body">Absolutely! We offer UI/UX redesign services to improve usability, enhance visual appeal, and ensure your digital presence aligns with user expectations and modern design standards.</div>
+                              </div>
+                          </div>
+                          <div class="accordion-item rounded-bottom">
+                              <h2 class="accordion-header" id="flush-headingSix">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+                                      How long does it take to see results from digital marketing?
+                                  </button>
+                              </h2>
+                              <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushSection">
+                                  <div class="accordion-body">Results can vary depending on your goals and channels. While some strategies (like paid ads) may show results in weeks, SEO and content marketing may take a few months for maximum impact.</div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.2s">
+                      <div class="bg-primary rounded">
+                          <img src="img/about-1.jpg" class="img-fluid w-100" alt="">
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- FAQs End -->
 
         <!-- Footer Start -->
         <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s" style="background-color: black;" >
@@ -1102,7 +1507,7 @@
                             <a href="privacypolicy.html"><i class="fas fa-angle-right me-2"></i>Privacy Policy</a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="col-md-6 col-lg-6 col-xl-2">
                         <div class="footer-item">
                             <h4 class="text-white mb-4">Our Service</h4>
                             <a href="#"><i class="fas fa-angle-right me-2"></i> Web Development</a>
@@ -1212,7 +1617,7 @@
                                 
                                 .form-input,
                                 .form-textarea {
-                                  padding: 0.5rem;
+                                  padding: 0rem;
                                   border: 1px solid #e5e7eb;
                                   display: flex;
                                   height: 2.5rem;
