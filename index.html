@@ -568,7 +568,7 @@
         </div>
         <!-- About End -->
          <!-- Services Start -->
-          <div id="service" class="container-fluid service pb-5" style="background-image: url('img/bg.jpg');">
+        <div id="service" class="container-fluid service pb-5" style="background-image: url('img/bg.jpg');">
             <div class="container pb-5">
               <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                 <h4 class="text-primary" style="font-size: x-large;">Our Services</h4>
@@ -655,7 +655,7 @@
                 </div>
               </div>
             </div>
-          </div>
+        </div>
       
       <!-- Services End -->
         
@@ -1461,7 +1461,7 @@
                             <a href="#"><i class="fas fa-angle-right me-2"></i> Digital Marketing</a>
                         </div>
                     </div>
-                    
+                    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item">
                             <h4 class="text-white mb-4">Join Our Newsletter</h4>
@@ -1470,36 +1470,21 @@
                             </div>                             
                             <section class="contact-section">                            
                                 <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" id="contactForm">
-                              
-                                  <input type="hidden" name="access_key" value="8d8ebc3f-89ff-44a3-b3b2-5c72e45f7c19" />
-                                  <input type="hidden" name="branding" value="false" />
-                            
-                                  <!-- <div class="form-group-container"> -->
-                                    <!-- <div class="form-group">
-                                      <label for="name" class="form-label">Name</label>
-                                      <input id="name" name="name" class="form-input" placeholder="Your name" type="text" required />
-                                    </div> -->
-                                    <div class="form-group">
-                                      <!-- <label for="email" class="form-label"></label> -->
-                                      <input id="email" name="email" class="form-input" placeholder="Your email" type="email" required />
+                                    <input type="hidden" name="access_key" value="8d8ebc3f-89ff-44a3-b3b2-5c72e45f7c19" />
+                                    <input type="hidden" name="branding" value="false" />
+                    
+                                    <!-- Flex container for email input and button -->
+                                    <div class="form-inline-group">
+                                        <input id="email" name="email" class="form-input" placeholder="Your email" type="email" required />
+                                        <button class="form-submit" type="submit">Subscribe</button>
                                     </div>
-                                    <!-- <div class="form-group">
-                                      <label for="phone" class="form-label">Phone</label>
-                                      <input id="phone" name="phone" class="form-input" placeholder="Your number" type="text" />
-                                    </div> -->
-                                    <!-- <div class="form-group">
-                                      <label for="message" class="form-label">Message</label>
-                                      <textarea class="form-textarea" id="message" name="message" placeholder="Your message" required></textarea>
-                                    </div> -->
-                                  <!-- </div> -->
-                                  <button class="form-submit" type="submit">Send Message</button>
                                 </form>
                             
                                 <div id="formSuccessMessage" style="display: none;">
                                     <p>Subscribed</p>
                                 </div>
-                                
                             </section>
+                    
                             <script>
                                 document.getElementById("contactForm").addEventListener("submit", function(event) {
                                     event.preventDefault(); // Prevent the default form submission
@@ -1521,82 +1506,51 @@
                                     .catch(error => console.error("Error:", error));
                                 });
                             </script>
+                    
                             <style>
                                 .contact-section {
-                                  width: 100%;
-                                  max-width: 40rem;
-                                  margin-left: auto;
-                                  margin-right: auto;
-                                  padding: 3rem 1rem;
+                                    width: 150%;
+                                    max-width: 40rem;
+                                    margin: auto;
+                                    padding: 3rem 1rem;
                                 }
-                                
-                                .contact-intro > * + * {
-                                  margin-top: 1rem;
+                    
+                                .form-inline-group {
+                                    display: flex;
+                                    gap: 0px;
+                                    margin-top: 1rem;
                                 }
-                                
-                                .contact-title {
-                                  font-size: 1.875rem;
-                                  line-height: 2.25rem;
-                                  font-weight: 700;
+                    
+                                .form-input {
+                                    padding: 10px;
+                                    border: 1px solid #e5e7eb;
+                                    /* border-radius: 0.375rem; */
+                                    font-size: 0.875rem;
+                                    flex: 1;
                                 }
-                                
-                                .contact-description {
-                                  color: rgb(107 114 128);
+                    
+                                .form-input:focus-visible {
+                                    outline: 2px solid #00CCCC;
+                                    outline-offset: 2px;
                                 }
-                                
-                                .form-group-container {
-                                  display: grid;
-                                  gap: 1rem;
-                                  margin-top: 2rem;
-                                }
-                                
-                                .form-group {
-                                  display: flex;
-                                  flex-direction: column;
-                                }
-                                
-                                .form-label {
-                                  margin-bottom: 0.5rem;
-                                }
-                                
-                                .form-input,
-                                .form-textarea {
-                                  padding: 0rem;
-                                  border: 1px solid #e5e7eb;
-                                  display: flex;
-                                  height: 2.5rem;
-                                  width: 100%;
-                                  border-radius: 0.375rem;
-                                  font-size: 0.875rem;
-                                  line-height: 1.25rem;
-                                }
-                                
-                                .form-input::placeholder,
-                                .form-textarea:focus-visible {
-                                  color: #6b7280;
-                                }
-                                
-                                .form-input:focus-visible,
-                                .form-textarea:focus-visible {
-                                  outline: 2px solid #00CCCC;
-                                  outline-offset: 2px;
-                                }
-                                
-                                .form-textarea {
-                                  min-height: 120px;
-                                }
-                                
+                    
                                 .form-submit {
-                                  width: 100%;
-                                  margin-top: 1.2rem;
-                                  background-color: #00CCCC;
-                                  color: #fff;
-                                  padding: 13px 5px;
-                                  border-radius: 0.375rem;
+                                    background-color: #00CCCC;
+                                    color: #fff;
+                                    padding: 10px 10px;
+                                    border: none;
+                                    /* border-radius: 0.375rem; */
+                                    font-size: 0.875rem;
+                                    cursor: pointer;
                                 }
-                              </style>
-    
+                    
+                                .form-submit:hover {
+                                    background-color: #00b2b2;
+                                }
+                            </style>
+                        </div>
                     </div>
+                    
                     <!-- <div class="col-md-6 text-center text-md-end text-body"> -->
                         <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
                         <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
