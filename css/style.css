@@ -606,6 +606,72 @@
     color: var(--bs-blue);
 }
 /*** Blog End ***/
+/***Career ***/
+
+/* Flip Card Container */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    height: 300px;
+    perspective: 1000px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease;
+}
+ /* Flip Card Inner Wrapper */
+ .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* Flip effect on hover */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+          
+/* Front and Back of Card */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #fff;
+    background: #2f56a5;
+}
+/* Back of Card */
+.flip-card-back {
+    background: radial-gradient(circle, #00CCCC, #001f3f, #000);
+    color: #fff;
+    transform: rotateY(180deg);
+    padding: 20px;
+    font-size: 1em;
+    text-align: center;
+}
+/* Feature Icon Styling */
+.icon {
+    font-size: 40px;
+    margin-bottom: 25px;
+    color: #fff;
+    width: 90px;
+    height: 90px;
+    line-height: 96px;
+    border-radius: 50px;
+    background: #2f56a5;
+}
+.feature-title {
+    font-size: 1.2em;
+    padding-top: 10px;
+}
+
 
 
 /*** FAQs Start ***/

@@ -143,14 +143,14 @@
     .form-group:nth-child(5) { animation-delay: 0.8s; }
 
     .form-group input,
-    .form-group textarea {
+    .form-group select {
       width: 100%;
       padding: 1rem;
       border: 1px solid #444;
       border-radius: 5px;
       font-size: 1rem;
       outline: none;
-      color: #ddd;
+      color: #777;
       background: #222;
       transition: 0.3s ease;
     }
@@ -166,15 +166,15 @@
     }
 
     .form-group input:focus,
-    .form-group textarea:focus {
+    .form-group select:focus {
       border-color: #00CCCC;
       background: #333;
     }
 
     .form-group input:focus ~ label,
-    .form-group textarea:focus ~ label,
+    .form-group select:focus ~ label,
     .form-group input:not(:placeholder-shown) ~ label,
-    .form-group textarea:not(:placeholder-shown) ~ label {
+    .form-group select:not(:placeholder-shown) ~ label {
       top: -0.6rem;
       left: 0.8rem;
       font-size: 0.85rem;
@@ -251,6 +251,7 @@
         height: auto;
       }
     }
+
     .privacy-policy a {
       color: #00cccc;
     }
@@ -261,7 +262,6 @@
 
   <div class="container">
     <div class="left-panel">
-      <a href=""></a>
       <i class="fas fa-user-graduate"></i>
       <h1>SkySphere Internship</h1>
       <p>Enhance your skills and gain real-world experience. Register now to take your career to the next level!</p>
@@ -289,15 +289,23 @@
             <input type="tel" id="phone" name="phone" placeholder=" " pattern="[0-9]{10}" required>
             <label for="phone">Phone</label>
           </div>
-  
+
+          <!-- Dropdown for service selection -->
           <div class="form-group">
-            <textarea id="message" name="message" rows="4" placeholder=" " required></textarea>
-            <label for="message">Message</label>
+            <select id="service" name="service" required>
+              <option value="" >Select a service</option>
+              <option value="web-development">Web Development</option>
+              <option value="app-development">App Development</option>
+              <option value="ui-ux">UI/UX Design</option>
+              <option value="digital-marketing">Digital Marketing</option>
+            </select>
           </div>
+  
           <div class="privacy-policy">
             <input type="checkbox" id="privacyPolicy" required>
             <label for="privacyPolicy">I agree to the <a href="privacypolicy.html" target="_blank">Privacy Policy</a>.</label>
           </div>
+  
           <br/>
           <button type="submit" class="submit-btn">Submit</button>
         </form>
