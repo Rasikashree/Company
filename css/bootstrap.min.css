@@ -566,8 +566,8 @@ progress {
 
 .container,.container-fluid,.container-xxl,.container-xl,.container-lg,.container-md,.container-sm {
     width: 100%;
-    padding-right: var(--bs-gutter-x, 0.75rem);
-    padding-left: var(--bs-gutter-x, 0.75rem);
+    /* padding-right: var(--bs-gutter-x, 0.75rem);
+    padding-left: var(--bs-gutter-x, 0.75rem); */
     margin-right: auto;
     margin-left: auto
 }
@@ -7494,8 +7494,8 @@ textarea.form-control-lg {
 }
 
 .py-5 {
-    padding-top: 3rem !important;
-    padding-bottom: 3rem !important
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important
 }
 
 .pt-0 {
@@ -7566,9 +7566,9 @@ textarea.form-control-lg {
     padding-bottom: 1.5rem !important
 }
 
-.pb-5 {
+/* .pb-5 {
     padding-bottom: 3rem !important
-}
+} */
 
 .ps-0 {
     padding-left: 0 !important
